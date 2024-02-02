@@ -61,10 +61,21 @@ Bevor Sie einen Datentransformationsprozess mit einem Notebook automatisieren, k
 5. Erweitern Sie Ihr Speicherkonto, und stellen Sie sicher, dass es einen Dateisystemcontainer mit dem Namen **files (primary)** enthält.
 6. Wählen Sie den Dateicontainer aus, und beachten Sie, dass er einen Ordner mit dem Namen **data** enthält, der die zu transformierenden Datendateien enthält.
 7. Öffnen Sie den Ordner **data**** und zeigen Sie die darin enthaltenen CSV-Dateien an. Klicken Sie mit der rechten Maustaste auf eine der Dateien, und wählen Sie **Vorschau** aus, um ein Beispiel der Daten anzuzeigen. Schließen Sie die Vorschau, wenn Sie fertig sind.
-8. Erweitern Sie in Synapse Studio auf der Seite **Entwickeln** die Option **Notebooks**, und öffnen Sie das Notebook **Spark Transform**.
+8. Klicken Sie mit der rechten Maustaste auf eine der Dateien, und wählen Sie **Vorschau** aus, um die darin enthaltenen Daten anzuzeigen. Beachten Sie, dass die Dateien eine Kopfzeile enthalten, damit Sie die Option zum Anzeigen von Spaltenüberschriften auswählen können.
+9. Schließen Sie die Vorschau. Laden Sie dann die **Spark Transform.ipynb** [aus Allfiles/labs/11/notebooks herunter](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/11/notebooks)
 
-    > **Hinweis**: Wenn Sie feststellen, dass das Notebook während des Ausführungsskripts nicht hochgeladen wird, sollten Sie die Datei mit dem Namen Spark Transform.ipynb von GitHub [Allfiles/labs/11/notebooks](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/11/notebooks) herunterladen und sie in Synapse hochladen.
+    > **Hinweis**: Es ist am besten, diesen Text mit ***STRG+A*** und ***STRG+C*** zu kopieren und mit ***STRG+V*** in ein Tool wie Notepad einzufügen und die Datei anschließend als **Spark Transform.ipynb** mit einem Dateityp ***Alle Dateien*** zu speichern. Sie haben auch die Möglichkeit, die Datei innerhalb von GitHub auszuwählen, die Ellipsen zu markieren und dann Download zu wählen, um sie an einem Speicherort zu speichern, den Sie sich merken können. 
+    ![Herunterladen der Notebookdatei von GitHub](./images/select-download-notebook.png)
 
+10 Erweitern Sie dann auf der Seite **Entwickeln** die **Notebooks** und klicken Sie auf die Optionen + Importieren
+
+    ![Spark Notebook import](./image/../images/spark-notebook-import.png)
+        
+12. Wählen Sie die Datei aus, die Sie gerade heruntergeladen und als **Spark Transfrom.ipynb** gespeichert haben.
+13. Fügen Sie das Notebook an Ihren **Spark*xxxxxxx*** Spark-Pool an.
+14. Überprüfen Sie die Notizen im Notebook, und führen Sie die Codezellen aus.
+
+    > **Hinweis**: Die erste Codezelle dauert ein paar Minuten, da der Spark-Pool gestartet werden muss. Nachfolgende Zellen werden schneller ausgeführt.
 9. Überprüfen Sie den im Notebook enthaltenen Code, und beachten Sie, dass er:
     - Eine Variable festlegt, um einen eindeutigen Ordnernamen zu definieren.
     - Die CSV-Bestelldaten aus dem Ordner **/data** liest.
@@ -99,8 +110,9 @@ Nachdem Sie den Transformationsprozess verstanden haben, können Sie ihn automat
 
     ![Screenshot: Pipeline mit einer Notebook-Aktivität.](images/notebook-pipeline.png)
 
-4. Ändern Sie auf der Registerkarte **Allgemein** für die Notebookaktivität den Namen in **Spark Transform ausführen**.
-5. Legen Sie auf der Registerkarte **Einstellungen** für die Notebookaktivität die folgenden Eigenschaften fest:
+4. 
+5. Ändern Sie auf der Registerkarte **Allgemein** für die Notebookaktivität den Namen in **Spark Transform ausführen**.
+6. Legen Sie auf der Registerkarte **Einstellungen** für die Notebookaktivität die folgenden Eigenschaften fest:
     - **Notebook**: Wählen Sie das Notebook **Spark Transform** aus.
     - **Basisparameter**: Erweitern Sie diesen Abschnitt, und definieren Sie einen Parameter mit den folgenden Einstellungen:
         - **Name**: folderName
