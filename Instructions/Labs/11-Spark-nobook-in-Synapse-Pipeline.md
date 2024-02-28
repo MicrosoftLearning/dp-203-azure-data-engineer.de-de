@@ -64,7 +64,7 @@ Bevor Sie einen Datentransformationsprozess mit einem Notebook automatisieren, k
 8. Klicken Sie mit der rechten Maustaste auf eine der Dateien, und wählen Sie **Vorschau** aus, um die darin enthaltenen Daten anzuzeigen. Beachten Sie, dass die Dateien eine Kopfzeile enthalten, damit Sie die Option zum Anzeigen von Spaltenüberschriften auswählen können.
 9. Schließen Sie die Vorschau. Laden Sie dann die **Spark Transform.ipynb** [aus Allfiles/labs/11/notebooks herunter](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/11/notebooks)
 
-    > **Hinweis**: Es ist am besten, diesen Text mit ***STRG+A*** und ***STRG+C*** zu kopieren und mit ***STRG+V*** in ein Tool wie Notepad einzufügen und die Datei anschließend als **Spark Transform.ipynb** mit einem Dateityp ***Alle Dateien*** zu speichern. Sie haben auch die Möglichkeit, die Datei innerhalb von GitHub auszuwählen, die Ellipsen zu markieren und dann Download zu wählen, um sie an einem Speicherort zu speichern, den Sie sich merken können. 
+    > **Hinweis**: Es ist am besten, diesen Text mit ***STRG+A*** und ***STRG+C*** zu kopieren und mit ***STRG+V*** in ein Tool wie Notepad einzufügen und die Datei anschließend als **Spark Transform.ipynb** mit einem Dateityp ***Alle Dateien*** zu speichern. Sie haben auch die Möglichkeit, die Datei in GitHub auszuwählen. Wählen Sie anschließend die Auslassungspunkte (...) und dann **Herunterladen** aus, um sie an einem Speicherort zu speichern, den Sie sich merken können. 
     ![Herunterladen der Notebookdatei von GitHub](./images/select-download-notebook.png)
 
 10 Erweitern Sie dann auf der Seite **Entwickeln** die **Notebooks** und klicken Sie auf die Optionen + Importieren
