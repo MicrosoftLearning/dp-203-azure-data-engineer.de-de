@@ -65,7 +65,7 @@ In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und 
 9. Klicken Sie mit der rechten Maustaste auf eine der Dateien, und wählen Sie **Vorschau** aus, um die darin enthaltenen Daten anzuzeigen. Beachten Sie, dass die Dateien eine Kopfzeile enthalten, damit Sie die Option zum Anzeigen von Spaltenüberschriften auswählen können.
 10. Schließen Sie die Vorschau. Laden Sie dann die **Spark Transform.ipynb** aus [Allfiles/labs/06/notebooks](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/06/notebooks) herunter
 
-    > **Hinweis**: Es ist am besten, diesen Text mit ***STRG+A*** und ***STRG+C*** zu kopieren und mit ***STRG+V*** in ein Tool wie Notepad einzufügen und die Datei anschließend als **Spark Transform.ipynb** mit einem Dateityp ***Alle Dateien*** zu speichern. Sie können die Datei auch herunterladen, indem Sie diese anklicken, dann die Ellipsen auswählen und dann herunterladen, wobei Sie sich merken, wo Sie diese gespeichert haben.
+    > **Hinweis**: Es ist am besten, diesen Text mit ***STRG+A*** und ***STRG+C*** zu kopieren und mit ***STRG+V*** in ein Tool wie Notepad einzufügen und die Datei anschließend als **Spark Transform.ipynb** mit einem Dateityp ***Alle Dateien*** zu speichern. Sie können die Datei auch herunterladen, indem Sie darauf klicken, die Auslassungspunkte (...) auswählen und die Datei dann herunterladen. Merken Sie sich dabei, wo Sie die Datei gespeichert haben.
     ![Spark-Notebook von GitHub herunterladen](./images/select-download-notebook.png)
 
 11. Erweitern Sie dann auf der Seite **Entwickeln** **Notebooks** und klicken Sie auf +Import-Optionen.

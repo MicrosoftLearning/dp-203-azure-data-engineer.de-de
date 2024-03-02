@@ -25,18 +25,18 @@ In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und 
 
     ![Azure-Portal mit einem Cloud Shell-Bereich](./images/cloud-shell.png)
 
-    > **Hinweis**: Wenn Sie zuvor eine Cloud Shell erstellt haben, die eine *Bash-Umgebung* verwendet, verwenden Sie das Dropdownmenü oben links im Cloud Shell-Bereich, um sie in ***PowerShell*** zu ändern.
+    > **Hinweis:** Wenn Sie zuvor eine Cloudshell erstellt haben, die eine *Bash*-Umgebung verwendet, verwenden Sie das Dropdownmenü links oben im Bereich „Cloudshell“, um sie in ***PowerShell*** zu ändern.
 
-3. Beachten Sie, dass Sie die Größe der Cloud Shell durch Ziehen der Trennzeichenleiste oben im Bereich ändern können, oder den Bereich mithilfe der Symbole **&#8212;**, **&#9723;** und **X** oben rechts minimieren, maximieren und schließen können. Weitere Informationen zur Verwendung von Azure Cloud Shell finden Sie in der [Azure Cloud Shell-Dokumentation](https://docs.microsoft.com/azure/cloud-shell/overview).
+3. Beachten Sie, dass Sie die Größe der Cloud Shell durch Ziehen der Trennzeichenleiste oben im Bereich ändern können oder den Bereich mithilfe der Symbole **&#8212;**, **&#9723;** und **X** oben rechts minimieren, maximieren und schließen können. Weitere Informationen zur Verwendung von Azure Cloud Shell finden Sie in der [Azure Cloud Shell-Dokumentation](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-4. Geben Sie im Terminal die folgenden Befehle ein, um dieses Repository zu klonen:
+4. Geben Sie im PowerShell-Bereich die folgenden Befehle ein, um dieses Repository zu klonen:
 
     ```
     rm -r dp-203 -f
     git clone https://github.com/MicrosoftLearning/dp-203-azure-data-engineer dp-203
     ```
 
-5. Nachdem das Repository geklont wurde, geben Sie die folgenden Befehle ein, um in den Ordner für dieses Lab zu wechseln. Führen Sie das darin enthaltene Skript **setup.ps1** aus:
+5. Nachdem das Repository geklont wurde, geben Sie die folgenden Befehle ein, um in den Ordner für diese Übung zu wechseln. Führen Sie das darin enthaltene Skript **setup.ps1** aus:
 
     ```
     cd dp-203/Allfiles/labs/04
@@ -52,8 +52,8 @@ In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und 
 
 ## Ändern von Containerberechtigungen
 
-1. Wechseln Sie nach Abschluss des Bereitstellungsskripts im Azure-Portal zur von ihr erstellten **dp203-*xxxxxxx***-Ressourcengruppe, und beachten Sie, dass diese Ressourcengruppe Ihren Synapse-Arbeitsbereich, ein Speicherkonto für Ihren Data Lake und einen Apache Spark-Pool enthält.
-1. Wählen Sie das **Speicherkonto** für Ihren Data Lake mit dem Namen **datalakexxxxxxx** aus. 
+1. Wechseln Sie nach Abschluss des Bereitstellungsskripts im Azure-Portal zur von ihr erstellten Ressourcengruppe **dp203-*xxxxx***. Beachten Sie, dass diese Ressourcengruppe Ihren Synapse-Arbeitsbereich, ein Speicherkonto für Ihren Data Lake und einen Apache Spark-Pool enthält.
+1. Wählen Sie das **Speicherkonto** für Ihren Data Lake mit dem Namen **datalakexxxxx** aus. 
 
      ![Data Lake-Navigation zu Containern](./images/datalakexxxxxx-storage.png)
 
@@ -61,7 +61,7 @@ In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und 
 
     ![Auswählen des Dateien-Ordners im Data Lake-Container](./images/dp203-Container.png)
 
-1. Beachten Sie, dass im **Dateien-Ordner** als **Authentifizierungsmethode:** ***Zugriffsschlüssel (Zu Azure AD-Benutzerkonto wechseln) aufgeführt ist.*** Klicken Sie darauf, um zum Azure AD-Benutzerkonto zu wechseln.
+1. Beachten Sie, dass im **Dateiordner** als **Authentifizierungsmethode:** die Option ***Zugriffstaste (Zu Entra-Benutzerkonto wechseln)*** aufgeführt wird. Wählen Sie sie aus, um zu Entra-Benutzerkonto zu wechseln.
 
     ![Zum Azure AD-Benutzerkonto wechseln](./images/dp203-switch-to-aad-user.png)
 ## Erstellen einer Lake-Datenbank
@@ -89,26 +89,26 @@ Nachdem Sie nun eine Seedatenbank erstellt haben, können Sie das Schema definie
 3. Erweitern Sie den Abschnitt **Speichereinstellungen für Tabelle** und beachten Sie, dass die Tabelle als durch Trennzeichen getrennter Text im Ordner **Dateien/RetailDB/Customer** im standardmäßigen Data Lake-Speicherort für Ihren Synapse-Arbeitsbereich gespeichert wird.
 4. Beachten Sie auf der Registerkarte **Spalten**, dass die Tabelle standardmäßig eine Spalte mit dem Namen **Column_1** enthält. Bearbeiten Sie die Spaltendefinition so, dass sie den folgenden Eigenschaften entspricht:
 
-    | Name | Schlüssel | Beschreibung | NULL-Zulässigkeit | Datentyp | Format / Länge |
+    | Name | Tasten | Beschreibung | NULL-Zulässigkeit | Datentyp | Format / Länge |
     | ---- | ---- | ----------- | ----------- | --------- | --------------- |
-    | CustomerId | PK &#128505; | Eindeutige Kunden-ID | &#128454;  | lang | |
+    | CustomerId | PK &#128505; | Eindeutige Kunden-ID | &#128454;  | long | |
 
 5. Wählen Sie in der Liste **+Spalte** **Neue Spalte** aus und ändern Sie die neue Spaltendefinition, um der Tabelle wie folgt eine Spalte **FirstName** hinzuzufügen:
 
-    | Name | Schlüssel | Beschreibung | NULL-Zulässigkeit | Datentyp | Format / Länge |
+    | Name | Tasten | Beschreibung | NULL-Zulässigkeit | Datentyp | Format / Länge |
     | ---- | ---- | ----------- | ----------- | --------- | --------------- |
-    | CustomerId | PK &#128505; | Eindeutige Kunden-ID | &#128454;  | lang | |
+    | CustomerId | PK &#128505; | Eindeutige Kunden-ID | &#128454;  | long | |
     | **FirstName** | **PK &#128454;** | **Vorname des Kunden** | **&#128454;** | **Zeichenfolge** | **256** |
 
 6. Fügen Sie weitere neue Spalten hinzu, bis die Tabellendefinition wie folgt aussieht:
 
-    | Name | Schlüssel | Beschreibung | NULL-Zulässigkeit | Datentyp | Format / Länge |
+    | Name | Tasten | Beschreibung | NULL-Zulässigkeit | Datentyp | Format / Länge |
     | ---- | ---- | ----------- | ----------- | --------- | --------------- |
-    | CustomerId | PK &#128505; | Eindeutige Kunden-ID | &#128454;  | lang | |
+    | CustomerId | PK &#128505; | Eindeutige Kunden-ID | &#128454;  | long | |
     | FirstName | PK &#128454; | Vorname des Kunden | &#128454; | Zeichenfolge | 256 |
     | LastName | PK &#128454; | Nachname des Kunden | &#128505; | Zeichenfolge | 256 |
     | EmailAddress | PK &#128454; | Kunden-E-Mail | &#128454; | Zeichenfolge | 256 |
-    | Telefon | PK &#128454; | Telefonnummer des Kunden | &#128505; | Zeichenfolge | 256 |
+    | Telefonnummer | PK &#128454; | Telefonnummer des Kunden | &#128505; | Zeichenfolge | 256 |
 
 7. Wenn Sie alle Spalten hinzugefügt haben, veröffentlichen Sie die Datenbank erneut, um die Änderungen zu speichern.
 8. Wechseln Sie im Bereich **Daten** auf der linken Seite zurück zur Registerkarte **Arbeitsbereich**, um die Lake-Datenbank **RetailDB** zu sehen. Erweitern Sie diese und aktualisieren Sie den Ordner **Tabellen**, um die neu erstellte Tabelle **Kunde** anzuzeigen.
@@ -144,23 +144,23 @@ Wie Sie gesehen haben, können Sie die in Ihrer Lake-Datenbank benötigten Tabel
     - ItemSku
 7. Wählen Sie auf der Symbolleiste im Bereich **Spalten** die Option **Löschen** aus, um die ausgewählten Spalten zu entfernen. Damit sollten die folgenden Spalten übrig sein:
 
-    | Name | Schlüssel | Beschreibung | NULL-Zulässigkeit | Datentyp | Format / Länge |
+    | Name | Tasten | Beschreibung | NULL-Zulässigkeit | Datentyp | Format / Länge |
     | ---- | ---- | ----------- | ----------- | --------- | --------------- |
-    | ProductId | PK &#128505; | Eindeutiger Bezeichner des Produkts. | &#128454;  | lang | |
+    | ProductId | PK &#128505; | Eindeutiger Bezeichner des Produkts. | &#128454;  | long | |
     | ProductName | PK &#128454; | Der Name des Produkts… | &#128505; | Zeichenfolge | 128 |
-    | IntroductionDate | PK &#128454; | Das Datum, an dem das Produkt zum Verkauf eingeführt wurde. | &#128505; | date | JJJJ-MM-TT |
-    | ActualAbandonmentDate | PK &#128454; | Das tatsächliche Datum, an dem das Marketing des Produkts eingestellt wurde... | &#128505; | date | JJJJ-MM-TT |
+    | IntroductionDate | PK &#128454; | Das Datum, an dem das Produkt zum Verkauf eingeführt wurde. | &#128505; | Datum | JJJJ-MM-TT |
+    | ActualAbandonmentDate | PK &#128454; | Das tatsächliche Datum, an dem das Marketing des Produkts eingestellt wurde... | &#128505; | Datum | JJJJ-MM-TT |
     | ProductGrossWeight | PK &#128454; | Das Bruttoproduktgewicht | &#128505; | Decimal | 18,8 |
     | ItemSku | PK &#128454; | Die Bezeichner der Lagerhaltungseinheit... | &#128505; | Zeichenfolge | 20 |
 
 8. Fügen Sie der Tabelle wie hier gezeigt eine neue Spalte mit dem Namen **ListPrice** hinzu:
 
-    | Name | Schlüssel | Beschreibung | NULL-Zulässigkeit | Datentyp | Format / Länge |
+    | Name | Tasten | Beschreibung | NULL-Zulässigkeit | Datentyp | Format / Länge |
     | ---- | ---- | ----------- | ----------- | --------- | --------------- |
-    | ProductId | PK &#128505; | Eindeutiger Bezeichner des Produkts. | &#128454;  | lang | |
+    | ProductId | PK &#128505; | Eindeutiger Bezeichner des Produkts. | &#128454;  | long | |
     | ProductName | PK &#128454; | Der Name des Produkts… | &#128505; | Zeichenfolge | 128 |
-    | IntroductionDate | PK &#128454; | Das Datum, an dem das Produkt zum Verkauf eingeführt wurde. | &#128505; | date | JJJJ-MM-TT |
-    | ActualAbandonmentDate | PK &#128454; | Das tatsächliche Datum, an dem das Marketing des Produkts eingestellt wurde... | &#128505; | date | JJJJ-MM-TT |
+    | IntroductionDate | PK &#128454; | Das Datum, an dem das Produkt zum Verkauf eingeführt wurde. | &#128505; | Datum | JJJJ-MM-TT |
+    | ActualAbandonmentDate | PK &#128454; | Das tatsächliche Datum, an dem das Marketing des Produkts eingestellt wurde... | &#128505; | Datum | JJJJ-MM-TT |
     | ProductGrossWeight | PK &#128454; | Das Bruttoproduktgewicht | &#128505; | Decimal | 18,8 |
     | ItemSku | PK &#128454; | Die Bezeichner der Lagerhaltungseinheit... | &#128505; | Zeichenfolge | 20 |
     | **ListPrice** | **PK &#128454;** | **Der Produktpreis** | **&#128454;** | **decimal** | **18,2** |
@@ -205,14 +205,14 @@ Bisher haben Sie Tabellen erstellt und dann mit Daten aufgefüllt. In manchen F�
 
 4. Wenn die Tabelle erstellt wurde, beachten Sie, dass sie Spalten mit dem Namen **C1**, **C2** usw. enthält und dass die Datentypen aus den Daten im Ordner abgeleitet wurden. Ändern Sie die Spaltendefinitionen wie folgt:
 
-    | Name | Schlüssel | Beschreibung | NULL-Zulässigkeit | Datentyp | Format / Länge |
+    | Name | Tasten | Beschreibung | NULL-Zulässigkeit | Datentyp | Format / Länge |
     | ---- | ---- | ----------- | ----------- | --------- | --------------- |
-    | SalesOrderid | PK &#128505; | Der eindeutige Bezeichner einer Bestellung | &#128454;  | lang | |
-    | OrderDate | PK &#128454; | Das Datum der Bestellung | &#128454; | timestamp | JJJJ-MM-TT |
-    | LineItemId | PK &#128505; | Die ID eines bestimmten Einzelpostens | &#128454; | lang | |
-    | CustomerId | PK &#128454; | Der Kunde | &#128454; | lang | |
-    | ProductId | PK &#128454; | Das Produkt | &#128454; | lang | |
-    | Menge | PK &#128454; | Die Bestellmenge | &#128454; | lang | |
+    | SalesOrderid | PK &#128505; | Der eindeutige Bezeichner einer Bestellung | &#128454;  | long | |
+    | OrderDate | PK &#128454; | Das Datum der Bestellung | &#128454; | Zeitstempel | JJJJ-MM-TT |
+    | LineItemId | PK &#128505; | Die ID eines bestimmten Einzelpostens | &#128454; | long | |
+    | CustomerId | PK &#128454; | Der Kunde | &#128454; | long | |
+    | ProductId | PK &#128454; | Das Produkt | &#128454; | long | |
+    | Menge | PK &#128454; | Die Bestellmenge | &#128454; | long | |
 
     > **Hinweis**: Die Tabelle enthält einen Datensatz für jeden einzelnen sortierten Artikel und enthält einen zusammengesetzten Primärschlüssel, der aus **SalesOrderId** und **LineItemId** besteht.
 
@@ -220,7 +220,7 @@ Bisher haben Sie Tabellen erstellt und dann mit Daten aufgefüllt. In manchen F�
 
     | From-Tabelle | From-Spalte | Zu Tabelle | Zu Spalte |
     | ---- | ---- | ----------- | ----------- |
-    | Debitor | CustomerId | Verkaufsauftrag | CustomerId |
+    | Kreditor | CustomerId | Verkaufsauftrag | CustomerId |
 
 6. Fügen Sie eine zweite Beziehung *Zu Tabelle* mit den folgenden Einstellungen hinzu:
 
@@ -283,10 +283,10 @@ Nachdem Sie nun über einige Tabellen in Ihrer Datenbank verfügen, können Sie 
 
 Wenn Sie sich mit Azure Synapse Analytics vertraut gemacht haben, sollten Sie die erstellten Ressourcen löschen, um unnötige Azure-Kosten zu vermeiden.
 
-1. Schließen Sie die Synapse Studio-Registerkarte im Browser, und kehren Sie zum Azure-Portal zurück.
+1. Schließen Sie die Registerkarte mit Synapse Studio, und kehren Sie zum Azure-Portal zurück.
 2. Wählen Sie auf der **Startseite** des Azure-Portals die Option **Ressourcengruppen** aus.
 3. Wählen Sie die Ressourcengruppe **dp203-*xxxxxxx*** für Ihren Synapse Analytics-Arbeitsbereich aus (nicht die verwaltete Ressourcengruppe), und vergewissern Sie sich, dass sie den Synapse-Arbeitsbereich, das Speicherkonto und den Spark-Pool für Ihren Arbeitsbereich enthält.
 4. Wählen Sie oben auf der Seite **Übersicht** für Ihre Ressourcengruppe die Option **Ressourcengruppe löschen** aus.
-5. Geben Sie den Namen der Ressourcengruppe **dp203-*xxxxxxx*** ein, um zu bestätigen, dass Sie diese löschen möchten, und wählen Sie **Löschen** aus.
+5. Geben Sie den Namen der Ressourcengruppe **dp203-*xxxxxxx*** ein, um zu bestätigen, dass Sie sie löschen möchten, und wählen Sie **Löschen** aus.
 
     Nach einigen Minuten werden die Ressourcengruppe in Ihrem Azure Synapse-Arbeitsbereich und die damit verknüpfte Ressourcengruppe im verwalteten Arbeitsbereich gelöscht.
