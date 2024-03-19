@@ -10,7 +10,7 @@ Sie können Notebooks in Azure Databricks verwenden, um Datentechnikaufgaben aus
 
 Diese Übung dauert ca. **40** Minuten.
 
-## Vorbereitung
+## Vor der Installation
 
 Sie benötigen ein [Azure-Abonnement](https://azure.microsoft.com/free), in dem Sie Administratorzugriff besitzen.
 
@@ -18,7 +18,9 @@ Sie benötigen ein [Azure-Abonnement](https://azure.microsoft.com/free), in dem 
 
 In dieser Übung verwenden Sie ein Skript, um einen neuen Azure Databricks-Arbeitsbereich und eine Azure Data Factory-Ressource in Ihrem Azure-Abonnement bereitzustellen.
 
-1. Melden Sie sich in einem Webbrowser beim [Azure-Portal](https://portal.azure.com) unter `https://portal.azure.com` an.
+> **Tipp**: Wenn Sie bereits über einen *Standard* - oder *Testarbeitsbereich* für Azure Databricks <u>sowie</u> eine eine Azure Data Factory v2-Ressource verfügen, können Sie dieses Verfahren überspringen.
+
+1. Melden Sie sich in einem Webbrowser am [Azure-Portal](https://portal.azure.com) unter `https://portal.azure.com` an.
 2. Verwenden Sie rechts neben der Suchleiste oben auf der Seite die Schaltfläche **[\>_]**, um eine neue Cloud Shell-Instanz im Azure-Portal zu erstellen. Wählen Sie eine ***PowerShell***-Umgebung aus, und erstellen Sie Speicher, falls Sie dazu aufgefordert werden. Die Cloud Shell bietet eine Befehlszeilenschnittstelle in einem Bereich am unteren Rand des Azure-Portals, wie hier gezeigt:
 
     ![Azure-Portal mit einem Cloud Shell-Bereich](./images/cloud-shell.png)
@@ -50,14 +52,14 @@ In dieser Übung verwenden Sie ein Skript, um einen neuen Azure Databricks-Arbei
 
 Sie können Notizbücher in Ihrem Azure Databricks-Arbeitsbereich erstellen, um Code auszuführen, der in einer Reihe von Programmiersprachen geschrieben wurde. In dieser Übung importieren Sie ein vorhandenes Notebook, das Python-Code enthält.
 
-1. Navigieren Sie im Azure-Portal zur Ressourcengruppe **dp203-*xxxxxxx***, die vom Skript erstellt wurde, das Sie ausgeführt haben.
-2. Wählen Sie die Azure Databricks Service-Ressource **databricks*xxxxxxx*** aus.
-3. Verwenden Sie auf der Seite **Übersicht** für **databricks*xxxxxxx*** die Schaltfläche **Arbeitsbereich starten**, um Ihren Azure Databricks-Arbeitsbereich in einer neuen Browserregisterkarte zu öffnen. Melden Sie sich an, wenn Sie dazu aufgefordert werden.
-4. Wenn die Nachricht **Was ist Ihr aktuelles Datenprojekt?** angezeigt wird, wählen Sie **Fertigstellen** aus, um es zu schließen. Zeigen Sie dann das Azure Databricks-Arbeitsbereichsportal an, und beachten Sie, dass die Seitenleiste auf der linken Seite Symbole für die verschiedenen Aufgaben enthält, die Sie ausführen können.
+1. Navigieren Sie im Azure-Portal zur Ressourcenruppe **dp203-*xxxxxxx***, die vom Skript erstellt wurde (oder die Ressourcengruppe, die Ihren vorhandenen Azure Databricks-Arbeitsbereich enthält).
+1. Wählen Sie Ihre Azure Databricks-Dienstressource (mit dem Namen **Databricks*xxxxxxx*** aus, wenn Sie das Setupskript zum Erstellen verwendet haben).
+1. Verwenden Sie auf der Seite **Übersicht** für Ihren Arbeitsbereich die Schaltfläche **Arbeitsbereich starten**, um Ihren Azure Databricks-Arbeitsbereich auf einer neuen Browserregisterkarte zu öffnen. Melden Sie sich an, wenn Sie dazu aufgefordert werden.
 
-    >**Tipp**: Während Sie das Databricks-Arbeitsbereichsportal verwenden, werden möglicherweise verschiedene Tipps und Benachrichtigungen angezeigt. Schließen Sie diese, und folgen Sie den Anweisungen, um die Aufgaben in dieser Übung auszuführen.
+    > **Tipp**: Während Sie das Databricks-Arbeitsbereichsportal verwenden, werden möglicherweise verschiedene Tipps und Benachrichtigungen angezeigt. Schließen Sie diese, und folgen Sie den Anweisungen, um die Aufgaben in dieser Übung auszuführen.
 
-1. Wählen Sie in der Seitenleiste auf der linken Seite **Arbeitsbereiche** aus. Wählen Sie dann den Ordner **&#8962; Basis** aus.
+1. Zeigen Sie das Azure Databricks-Arbeitsbereichsportal an, und beachten Sie, dass die Randleiste auf der linken Seite Symbole für die verschiedenen Aufgaben enthält, die Sie ausführen können.
+1. Wählen Sie in der Randleiste auf der linken Seite **Arbeitsbereich** aus. Wählen Sie dann den Ordner **&#8962; Basis** aus.
 1. Wählen Sie oben auf der Seite im Menü **&#8942;** neben Ihrem Benutzernamen die Option **Importieren** aus. Wählen Sie dann im Dialogfeld **Importieren** die Option **URL** aus, und importieren Sie das Notebook aus `https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/raw/master/Allfiles/labs/27/Process-Data.ipynb`.
 1. Überprüfen Sie den Inhalt des Notebooks, in dem einige Python-Codezellen enthalten sind:
     - Rufen Sie einen Parameter mit dem Namen **folder** ab, wenn er übergeben wurde (andernfalls verwenden Sie den Standardwert *data*).
@@ -95,7 +97,7 @@ Um Azure Databricks aus einer Azure Data Factory-Pipeline zu verwenden, müssen 
     - **Databrick-Arbeitsbereichs-URL**: *Automatisch auf Ihre Databricks-Arbeitsbereichs-URL festgelegt*
     - **Authentifizierungstyp**: Zugriffstoken
     - **Zugriffstoken**: *Fügen Sie Ihr Zugriffstoken ein*
-    - **Clusterversion**: 12.2 LTS (Scala 2.12, Spark 3.2.2)
+    - **Clusterversion**: 13.3 LTS (Spark 3.4.1, Scala 2.12)
     - **Clusterknotentyp**: Standard_DS3_v2
     - **Python-Version**: 3
     - **Workeroptionen**: Behoben
@@ -162,6 +164,6 @@ Nachdem Sie sich mit der Azure Data Factory-Integration in Azure Databricks vert
 2. Wählen Sie auf der **Startseite** des Azure-Portals die Option **Ressourcengruppen** aus.
 3. Wählen Sie die Ressourcengruppe **dp203-*xxxxxxx*** aus, die Ihren Azure Databricks- und Azure Data Factory-Arbeitsbereich (nicht die verwaltete Ressourcengruppe) enthält.
 4. Wählen Sie oben auf der Seite **Übersicht** für Ihre Ressourcengruppe die Option **Ressourcengruppe löschen** aus.
-5. Geben Sie den Namen der Ressourcengruppe ein, um zu bestätigen, dass Sie sie löschen möchten, und wählen Sie **Löschen** aus.
+5. Geben Sie den Namen der Ressourcengruppe ein, um die Löschung zu bestätigen, und wählen Sie **Löschen** aus.
 
     Nach einigen Minuten werden Ihre Ressourcengruppe und die damit verknüpfte Ressourcengruppe im verwalteten Arbeitsbereich gelöscht.

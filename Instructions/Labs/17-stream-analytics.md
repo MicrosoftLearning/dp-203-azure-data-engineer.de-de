@@ -10,7 +10,7 @@ In dieser Übung stellen Sie einen Azure Stream Analytics-Auftrag in Ihrem Azure
 
 Diese Übung dauert ca. **15** Minuten.
 
-## Vorbereitung
+## Vor der Installation
 
 Sie benötigen ein [Azure-Abonnement](https://azure.microsoft.com/free), in dem Sie Administratorzugriff besitzen.
 
@@ -76,8 +76,8 @@ Sie können jetzt einen Azure Stream Analytics-Auftrag erstellen, um die Verkauf
         - **Streamingeinheiten**: 1
     - **Speicher**:
         - **Speicherkonto hinzufügen**: Nicht ausgewählt
-    - **Tags**:
-        - *Keiner*
+    - **Tags:**
+        - *Keine*
 2. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Stream Analytics-Auftragsressource.
 
 ## Erstellen einer Eingabe für den Ereignisdatenstrom

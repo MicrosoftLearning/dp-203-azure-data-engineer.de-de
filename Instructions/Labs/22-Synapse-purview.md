@@ -12,7 +12,7 @@ Microsoft Purview ermöglicht es Ihnen, Datenressourcen über Ihre Datenbeständ
 
 Diese Übung dauert ca. **40** Minuten.
 
-## Vorbereitung
+## Vor der Installation
 
 Sie benötigen ein [Azure-Abonnement](https://azure.microsoft.com/free), in dem Sie über Administratorrechte und exklusiven Zugriff auf den Mandanten verfügen, in dem das Abonnement definiert ist.
 
