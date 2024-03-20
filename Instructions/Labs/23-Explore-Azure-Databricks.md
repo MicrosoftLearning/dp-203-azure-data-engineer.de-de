@@ -20,7 +20,9 @@ Sie benötigen ein [Azure-Abonnement](https://azure.microsoft.com/free), in dem 
 
 In dieser Übung verwenden Sie ein Skript, um einen neuen Azure Databricks-Arbeitsbereich bereitzustellen.
 
-1. Melden Sie sich in einem Webbrowser beim [Azure-Portal](https://portal.azure.com) unter `https://portal.azure.com` an.
+> **Tipp**: Wenn Sie bereits über einen *Standard* - oder *Testarbeitsbereich* für Azure Databricks verfügen, können Sie dieses Verfahren überspringen und Ihren vorhandenen Arbeitsbereich verwenden.
+
+1. Melden Sie sich in einem Webbrowser am [Azure-Portal](https://portal.azure.com) unter `https://portal.azure.com` an.
 2. Verwenden Sie rechts neben der Suchleiste oben auf der Seite die Schaltfläche **[\>_]**, um eine neue Cloud Shell-Instanz im Azure-Portal zu erstellen. Wählen Sie eine ***PowerShell***-Umgebung aus, und erstellen Sie Speicher, falls Sie dazu aufgefordert werden. Die Cloud Shell bietet eine Befehlszeilenschnittstelle in einem Bereich am unteren Rand des Azure-Portals, wie hier gezeigt:
 
     ![Azure-Portal mit einem Cloud Shell-Bereich](./images/cloud-shell.png)
@@ -49,28 +51,31 @@ In dieser Übung verwenden Sie ein Skript, um einen neuen Azure Databricks-Arbei
 
 ## Erstellen eines Clusters
 
-Azure Databricks ist eine verteilte Verarbeitungsplattform, die Apache Spark-*Cluster* verwendet, um Daten parallel auf mehreren Knoten zu verarbeiten. Jeder Cluster besteht aus einem Treiberknoten zur Koordination der Arbeit und Workerknoten zum Ausführen von Verarbeitungsaufgaben.
+Azure Databricks ist eine verteilte Verarbeitungsplattform, die Apache Spark-*Cluster* verwendet, um Daten parallel auf mehreren Knoten zu verarbeiten. Jeder Cluster besteht aus einem Treiberknoten, um die Arbeit zu koordinieren, und Arbeitsknoten zum Ausführen von Verarbeitungsaufgaben.
 
-> **Hinweis**: In dieser Übung erstellen Sie einen *Einzelknotencluster*, um die in der Labumgebung verwendeten Computeressourcen (wo Ressourcen möglicherweise eingeschränkt sind) zu minimieren. In einer Produktionsumgebung erstellen Sie in der Regel einen Cluster mit mehreren Workerknoten.
+In dieser Übung erstellen Sie einen *Einzelknotencluster* , um die in der Lab-Umgebung verwendeten Computeressourcen zu minimieren (in denen Ressourcen möglicherweise eingeschränkt werden). In einer Produktionsumgebung erstellen Sie in der Regel einen Cluster mit mehreren Workerknoten.
 
-1. Navigieren Sie im Azure-Portal zur Ressourcengruppe **dp203-*xxxxxxx***, die vom Skript erstellt wurde, das Sie ausgeführt haben.
-2. Wählen Sie die Azure Databricks Service-Ressource **databricks*xxxxxxx*** aus.
-3. Verwenden Sie auf der Seite **Übersicht** für **databricks*xxxxxxx*** die Schaltfläche **Arbeitsbereich starten**, um Ihren Azure Databricks-Arbeitsbereich in einer neuen Browserregisterkarte zu öffnen. Melden Sie sich an, wenn Sie dazu aufgefordert werden.
-4. Wenn die Nachricht **Was ist Ihr aktuelles Datenprojekt?** angezeigt wird, wählen Sie **Fertigstellen** aus, um es zu schließen. Zeigen Sie dann das Azure Databricks-Arbeitsbereichsportal an, und beachten Sie, dass die Seitenleiste auf der linken Seite Symbole für die verschiedenen Aufgaben enthält, die Sie ausführen können.
+> **Tipp**: Wenn Sie bereits über einen Cluster mit einer 13.3 LTS-Laufzeitversion in Ihrem Azure Databricks-Arbeitsbereich verfügen, können Sie damit diese Übung abschließen und dieses Verfahren überspringen.
 
-    >**Tipp**: Während Sie das Databricks-Arbeitsbereichsportal verwenden, werden möglicherweise verschiedene Tipps und Benachrichtigungen angezeigt. Schließen Sie diese, und folgen Sie den Anweisungen, um die Aufgaben in dieser Übung auszuführen.
+1. Navigieren Sie im Azure-Portal zur Ressourcenruppe **dp203-*xxxxxxx***, die vom Skript erstellt wurde (oder die Ressourcengruppe, die Ihren vorhandenen Azure Databricks-Arbeitsbereich enthält).
+1. Wählen Sie Ihre Azure Databricks-Dienstressource (mit dem Namen **Databricks*xxxxxxx*** aus, wenn Sie das Setupskript zum Erstellen verwendet haben).
+1. Verwenden Sie auf der Seite **Übersicht** für Ihren Arbeitsbereich die Schaltfläche **Arbeitsbereich starten**, um Ihren Azure Databricks-Arbeitsbereich auf einer neuen Browserregisterkarte zu öffnen. Melden Sie sich an, wenn Sie dazu aufgefordert werden.
 
-1. Wählen Sie die Aufgabe **(+) Neu** und dann **Cluster** aus.
+    > **Tipp**: Während Sie das Databricks-Arbeitsbereichsportal verwenden, werden möglicherweise verschiedene Tipps und Benachrichtigungen angezeigt. Schließen Sie diese, und folgen Sie den Anweisungen, um die Aufgaben in dieser Übung auszuführen.
+
+1. Zeigen Sie das Azure Databricks-Arbeitsbereichsportal an, und beachten Sie, dass die Randleiste auf der linken Seite Links zu den verschiedenen Aufgabentypen enthält, die Sie ausführen können.
+
+1. Wählen Sie in der Randleiste den Link ** (+) Neu** und dann **Cluster** aus.
 1. Erstellen Sie auf der Seite **Neuer Cluster** einen neuen Cluster mit den folgenden Einstellungen:
     - **Clustername**: Cluster des *Benutzernamens* (der Standardclustername)
     - **Clustermodus**: Einzelknoten
-    - **Zugriffsmodus**: Einzelner Benutzer (*Ihr Benutzerkonto ist ausgewählt*)
-    - **Databricks-Runtimeversion**: 12.2 LTS (Scala 2.12, Spark 3.2.2)
+    - **Zugriffsmodus**: Einzelner Benutzer (*mit ausgewähltem Benutzerkonto*)
+    - **Databricks-Laufzeitversion**: 13.3 LTS (Spark 3.4.1, Scala 2.12)
     - **Photonbeschleunigung verwenden**: Ausgewählt
     - **Knotentyp**: Standard_DS3_v2
     - **Nach** *30* **Minuten Inaktivität beenden**
 
-7. Warten Sie, bis der Cluster erstellt wurde. Es kann ein oder zwei Minuten dauern.
+1. Warten Sie, bis der Cluster erstellt wurde. Es kann ein oder zwei Minuten dauern.
 
 > **Hinweis**: Wenn Ihr Cluster nicht gestartet werden kann, verfügt Ihr Abonnement möglicherweise über ein unzureichendes Kontingent in der Region, in der Ihr Azure Databricks-Arbeitsbereich bereitgestellt wird. Details finden Sie unter [Der Grenzwert für CPU-Kerne verhindert die Clustererstellung](https://docs.microsoft.com/azure/databricks/kb/clusters/azure-core-limit). In diesem Fall können Sie versuchen, Ihren Arbeitsbereich zu löschen und in einer anderen Region einen neuen zu erstellen. Sie können einen Bereich als Parameter für das Setupskript wie folgt angeben: `./setup.ps1 eastus`
 
@@ -78,8 +83,8 @@ Azure Databricks ist eine verteilte Verarbeitungsplattform, die Apache Spark-*Cl
 
 Wie in vielen Spark-Umgebungen unterstützt Databricks die Verwendung von Notebooks zum Kombinieren von Notizen und interaktiven Codezellen, mit denen Sie Daten untersuchen können.
 
-1. Verwenden Sie in der Seitenleiste die Aufgabe **(+) Neu**, um ein **Notebook** zu erstellen.
-1. Ändern Sie den Standardnamen des Notebooks (**Unbenanntes Notebook *[Datum]***) in **Produkte erkunden**, und wählen Sie in der Dropdownliste **Verbinden** Ihren Cluster aus (es kann etwa eine Minute dauern, bis er gestartet wird).
+1. Verwenden Sie in der Randleiste den Link ** (+) Neu**, um ein **Notebook** zu erstellen.
+1. Ändern Sie den Standardnamen des Notebooks (**Unbenanntes Notebook *[Datum]***) in **Produkte erkunden**, und wählen Sie in der Dropdownliste **Verbinden** Ihren Cluster aus, wenn er noch nicht ausgewählt ist. Wenn der Cluster nicht ausgeführt wird, kann es eine Minute dauern, bis er gestartet wird.
 1. Laden Sie die Datei [**products.csv**](https://raw.githubusercontent.com/MicrosoftLearning/dp-203-azure-data-engineer/master/Allfiles/labs/23/adventureworks/products.csv) auf Ihren lokalen Computer herunter, und speichern Sie sie als **products.csv**. Wählen Sie dann im Notebook **Produkte erkunden** im Menü **Datei** die Option **Daten in DBFS hochladen** aus.
 1. Notieren Sie sich im Dialogfeld **Daten hochladen** das **DBFS-Zielverzeichnis**, in das die Datei hochgeladen wird. Wählen Sie dann den Bereich **Dateien** aus, und laden Sie die Datei **products.csv** hoch, die Sie auf Ihren Computer heruntergeladen haben. Wenn die Datei hochgeladen wurde, wählen Sie **Weiter** aus.
 1. Wählen Sie im Bereich **Auf Dateien aus Notebooks zugreifen** den PySpark-Beispielcode aus, und kopieren Sie ihn in die Zwischenablage. Sie werden diesen Code verwenden, um die Daten aus der Datei in einen DataFrame zu laden. Wählen Sie dann **Fertig** aus.
@@ -99,7 +104,7 @@ Wie in vielen Spark-Umgebungen unterstützt Databricks die Verwendung von Notebo
 
 1. Verwenden Sie die Menüoption **&#9656; Zelle ausführen** oben rechts in der neuen Zelle, um sie auszuführen. Dieser Code zeigt den Inhalt des Datenframes an, der etwa wie folgt aussehen sollte:
 
-    | ProductID | ProductName | Category | ListPrice |
+    | ProductID | ProductName | Kategorie | ListPrice |
     | -- | -- | -- | -- |
     | 771 | Mountain-100 Silver, 38 | Mountainbikes | 3399.9900 |
     | 772 | Mountain-100 Silver, 42 | Mountainbikes | 3399.9900 |
@@ -135,8 +140,8 @@ Während viele Datenanalysten gern Sprachen wie Python oder Scala verwenden, um 
     WHERE Category = 'Touring Bikes';
     ```
 
-4. Führen Sie die neue Zelle aus, die SQL-Code enthält, um den Namen und Preis der Produkte in der Kategorie *Tourenräder* zurückzugeben.
-5. Wählen Sie auf der Registerkarte auf der linken Seite die Aufgabe **Katalogisieren** aus, und stellen Sie sicher, dass die Tabelle **Produkte** im Standarddatenbankschema erstellt wurde (das erwartungsgemäß den Namen **default** hat). Spark-Code kann zum Erstellen benutzerdefinierter Datenbankschemas und eines Schemas mit relationalen Tabellen verwendet werden, mit denen Datenanalysten Daten untersuchen und analytische Berichte generieren können.
+4. Führen Sie die neue Zelle aus, die SQL-Code enthält, um den Namen und Preis der Produkte in der Kategorie *Touring Bikes* zurückzugeben.
+5. In der Randleiste wählen Sie den Link **Katalog** und prüfen, ob die Tabelle **products** im Standarddatenbankschema erstellt wurde (die wenig überraschend **default** bezeichnet wird). Es ist möglich, Spark-Code zum Erstellen benutzerdefinierter Datenbankschemas und eines Schemas relationaler Tabellen zu verwenden, mit denen Datenanalysten Daten untersuchen und Analyseberichte generieren können.
 
 ## Löschen von Databricks-Ressourcen
 

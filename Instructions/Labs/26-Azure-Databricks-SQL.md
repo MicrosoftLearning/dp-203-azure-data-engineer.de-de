@@ -10,15 +10,17 @@ SQL ist eine Branchenstandardsprache zum Abfragen und Bearbeiten von Daten. Viel
 
 Diese Übung dauert ca. **30** Minuten.
 
-## Vorbereitung
+## Vor der Installation
 
 Sie benötigen ein [Azure-Abonnement](https://azure.microsoft.com/free), in dem Sie Administratorzugriff und ausreichendes Kontingent in mindestens einer Region haben, um ein Azure Databricks-SQL-Warehouse bereitzustellen.
 
 ## Bereitstellen eines Azure Databricks-Arbeitsbereichs
 
-In dieser Übung benötigen Sie einen Azure Databricks-Arbeitsbereich der Premiumstufe.
+In dieser Übung benötigen Sie einen Azure Databricks-Arbeitsbereich auf Premiumebene.
 
-1. Melden Sie sich in einem Webbrowser beim [Azure-Portal](https://portal.azure.com) unter `https://portal.azure.com` an.
+> **Tipp**: Wenn Sie bereits über einen *Premium-* oder *Testarbeitsbereich* für Azure Databricks verfügen, können Sie dieses Verfahren überspringen.
+
+1. Melden Sie sich in einem Webbrowser am [Azure-Portal](https://portal.azure.com) unter `https://portal.azure.com` an.
 2. Verwenden Sie rechts neben der Suchleiste oben auf der Seite die Schaltfläche **[\>_]**, um eine neue Cloud Shell-Instanz im Azure-Portal zu erstellen. Wählen Sie eine ***PowerShell***-Umgebung aus, und erstellen Sie Speicher, falls Sie dazu aufgefordert werden. Die Cloud Shell bietet eine Befehlszeilenschnittstelle in einem Bereich am unteren Rand des Azure-Portals, wie hier gezeigt:
 
     ![Azure-Portal mit einem Cloud Shell-Bereich](./images/cloud-shell.png)
@@ -48,12 +50,12 @@ In dieser Übung benötigen Sie einen Azure Databricks-Arbeitsbereich der Premiu
 ## Anzeigen und Starten eines SQL-Warehouse
 
 1. Wenn die Azure Databricks-Arbeitsbereichsressource bereitgestellt wurde, wechseln Sie im Azure-Portal zu dieser Ressource.
-2. Verwenden Sie auf der Seite **Übersicht** für Ihren Azure Databricks-Arbeitsbereich die Schaltfläche **Arbeitsbereich starten**, um Ihren Azure Databricks-Arbeitsbereich in einer neuen Browserregisterkarte zu öffnen. Melden Sie sich an, wenn Sie dazu aufgefordert werden.
-3. Wenn die Nachricht **Was ist Ihr aktuelles Datenprojekt?** angezeigt wird, wählen Sie **Fertigstellen** aus, um es zu schließen. Zeigen Sie dann das Azure Databricks-Arbeitsbereichsportal an, und beachten Sie, dass die Seitenleiste auf der linken Seite die Namen der Aufgabenkategorien enthält.
+1. Verwenden Sie auf der Seite **Übersicht** für Ihren Azure Databricks-Arbeitsbereich die Schaltfläche **Arbeitsbereich starten**, um Ihren Azure Databricks-Arbeitsbereich auf einer neuen Browserregisterkarte zu öffnen. Melden Sie sich an, wenn Sie dazu aufgefordert werden.
 
-    >**Tipp**: Während Sie das Databricks-Arbeitsbereichsportal verwenden, werden möglicherweise verschiedene Tipps und Benachrichtigungen angezeigt. Schließen Sie diese, und folgen Sie den Anweisungen, um die Aufgaben in dieser Übung auszuführen.
+    > **Tipp**: Während Sie das Databricks-Arbeitsbereichsportal verwenden, werden möglicherweise verschiedene Tipps und Benachrichtigungen angezeigt. Schließen Sie diese, und folgen Sie den Anweisungen, um die Aufgaben in dieser Übung auszuführen.
 
-1. Wählen Sie in der Seitenleiste unter **SQL** die Option **SQL Warehouses** aus.
+1. Zeigen Sie das Azure Databricks-Arbeitsbereichsportal an, und beachten Sie, dass die Randleiste auf der linken Seite die Namen der Aufgabenkategorien enthält.
+1. Wählen Sie in der Randleiste unter **SQL** die Option **SQL-Warehouses** aus.
 1. Beachten Sie, dass der Arbeitsbereich bereits ein SQL Warehouse mit dem Namen **Starter Warehouse** enthält.
 1. Wählen Sie im Menü **Aktionen** (**&#8285;**) für das SQL-Warehouse die Option **Bearbeiten** aus. Legen Sie dann die Eigenschaft **Clustergröße** auf **2X-Klein** fest, und speichern Sie Ihre Änderungen.
 1. Verwenden Sie die Schaltfläche **Start**, um das SQL-Warehouse zu starten (was ein oder zwei Minuten dauern kann).
@@ -112,11 +114,9 @@ Durch das Speichern einer Abfrage können dieselben Daten zu einem späteren Zei
     - **Horizontales Diagramm**: Ausgewählt
     - **Y-Spalte**: Kategorie
     - **X-Spalten**: Produkt-ID : Anzahl
-    - **Gruppieren nach**: Kategorie
-    - **Legendenplatzierung**: Automatisch (flexibel)
-    - **Reihenfolge der Legendenelemente**: Normal
-    - **Stapeln**: Stapel
-    - **Werte in Prozent normalisieren**: <u>Nicht</u> ausgewählt
+    - **Gruppieren nach**: *Leer lassen*
+    - **Stapeln**: Deaktiviert
+    - **Normalisieren von Werten in Prozent**: <u>Nicht</u>ausgewählt
     - **Fehlende und NULL-Werte**: Im Diagramm nicht anzeigen
 
 6. Speichern Sie die Visualisierung, und zeigen Sie sie im Dashboard an.

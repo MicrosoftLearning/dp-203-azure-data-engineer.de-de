@@ -67,29 +67,28 @@ Bevor Sie einen Datentransformationsprozess mit einem Notebook automatisieren, k
     > **Hinweis**: Es ist am besten, diesen Text mit ***STRG+A*** und ***STRG+C*** zu kopieren und mit ***STRG+V*** in ein Tool wie Notepad einzufügen und die Datei anschließend als **Spark Transform.ipynb** mit einem Dateityp ***Alle Dateien*** zu speichern. Sie haben auch die Möglichkeit, die Datei in GitHub auszuwählen. Wählen Sie anschließend die Auslassungspunkte (...) und dann **Herunterladen** aus, um sie an einem Speicherort zu speichern, den Sie sich merken können. 
     ![Herunterladen der Notebookdatei von GitHub](./images/select-download-notebook.png)
 
-10 Erweitern Sie dann auf der Seite **Entwickeln** die **Notebooks** und klicken Sie auf die Optionen + Importieren
-
-    ![Spark Notebook import](./image/../images/spark-notebook-import.png)
+10 Erweitern Sie dann auf der Seite **Entwicklung** die Option **Notebooks importieren**. Wählen Sie unter „+ Importoptionen“ ![Spark-Notebook Import](./images/spark-notebook-import.png).
+    
         
-12. Wählen Sie die Datei aus, die Sie gerade heruntergeladen und als **Spark Transfrom.ipynb** gespeichert haben.
-13. Fügen Sie das Notebook an Ihren **Spark*xxxxxxx*** Spark-Pool an.
-14. Überprüfen Sie die Notizen im Notebook, und führen Sie die Codezellen aus.
+1. Wählen Sie die Datei aus, die Sie gerade heruntergeladen und als **Spark Transfrom.ipynb** gespeichert haben.
+2. Fügen Sie das Notebook an Ihren **Spark*xxxxxxx*** Spark-Pool an.
+3. Überprüfen Sie die Notizen im Notebook, und führen Sie die Codezellen aus.
 
     > **Hinweis**: Die erste Codezelle dauert ein paar Minuten, da der Spark-Pool gestartet werden muss. Nachfolgende Zellen werden schneller ausgeführt.
-9. Überprüfen Sie den im Notebook enthaltenen Code, und beachten Sie, dass er:
+4. Überprüfen Sie den im Notebook enthaltenen Code, und beachten Sie, dass er:
     - Eine Variable festlegt, um einen eindeutigen Ordnernamen zu definieren.
     - Die CSV-Bestelldaten aus dem Ordner **/data** liest.
     - Die Daten durch Aufteilen des Kundennamens in mehrere Felder transformiert.
     - Die transformierten Daten im Parquet-Format im eindeutig benannten Ordner speichert.
-10. Fügen Sie das Notebook über die Symbolleiste des Notebooks an Ihren Spark-Pool **spark*xxxxxxx*** an, und verwenden Sie dann die Schaltfläche **&#9655; Alle ausführen**, um alle Codezellen im Notebook auszuführen.
+5. Fügen Sie das Notebook über die Symbolleiste des Notebooks an Ihren Spark-Pool **spark*xxxxxxx*** an, und verwenden Sie dann die Schaltfläche **&#9655; Alle ausführen**, um alle Codezellen im Notebook auszuführen.
   
     Es kann einige Minuten dauern, bis die Spark-Sitzung starten und die Codezellen ausführen kann.
 
-11. Nachdem alle Notebookzellen ausgeführt wurden, notieren Sie sich den Namen des Ordners, in dem die transformierten Daten gespeichert wurden.
-12. Wechseln Sie zur Registerkarte **Dateien** (die noch geöffnet sein sollte), und zeigen Sie den Stammordner **Dateien** an. Wählen Sie ggf. im Menü **Mehr** die Option **Aktualisieren** aus, um den neuen Ordner anzuzeigen. Öffnen Sie ihn dann, um zu überprüfen, ob er Parquet-Dateien enthält.
-13. Kehren Sie zum Ordner Stammordner **Dateien** zurück, und wählen Sie dann den vom Notebook generierten eindeutig benannten Ordner aus, und wählen Sie im Menü **Neues SQL-Skript** die Option **Die ersten 100 Zeilen** aus.
-14. Legen Sie im Bereich **Die ersten 100 Zeilen** den Dateityp auf **Parquet-Format** fest, und wenden Sie die Änderung an.
-15. Verwenden Sie im daraufhin geöffneten Bereich „Neues SQL-Skript“ die Schaltfläche **&#9655; Ausführen**, um den SQL-Code auszuführen, und stellen Sie sicher, dass er die transformierten Bestelldaten zurückgibt.
+6. Nachdem alle Notebookzellen ausgeführt wurden, notieren Sie sich den Namen des Ordners, in dem die transformierten Daten gespeichert wurden.
+7. Wechseln Sie zur Registerkarte **Dateien** (die noch geöffnet sein sollte), und zeigen Sie den Stammordner **Dateien** an. Wählen Sie ggf. im Menü **Mehr** die Option **Aktualisieren** aus, um den neuen Ordner anzuzeigen. Öffnen Sie ihn dann, um zu überprüfen, ob er Parquet-Dateien enthält.
+8. Kehren Sie zum Ordner Stammordner **Dateien** zurück, und wählen Sie dann den vom Notebook generierten eindeutig benannten Ordner aus, und wählen Sie im Menü **Neues SQL-Skript** die Option **Die ersten 100 Zeilen** aus.
+9. Legen Sie im Bereich **Die ersten 100 Zeilen** den Dateityp auf **Parquet-Format** fest, und wenden Sie die Änderung an.
+10. Verwenden Sie im daraufhin geöffneten Bereich „Neues SQL-Skript“ die Schaltfläche **&#9655; Ausführen**, um den SQL-Code auszuführen, und stellen Sie sicher, dass er die transformierten Bestelldaten zurückgibt.
 
 ## Ausführen des Notebooks in einer Pipeline
 

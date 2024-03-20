@@ -10,7 +10,7 @@ Mit Azure Synapse Link für SQL können Sie eine transaktionale Datenbank in SQL
 
 Diese Übung dauert ca. **35** Minuten.
 
-## Vorbereitung
+## Vor der Installation
 
 Sie benötigen ein [Azure-Abonnement](https://azure.microsoft.com/free), in dem Sie Administratorzugriff besitzen.
 
