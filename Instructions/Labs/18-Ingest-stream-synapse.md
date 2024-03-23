@@ -93,7 +93,7 @@ Beginnen wir damit, einen Datenstrom direkt in eine Tabelle in einem dedizierten
         - **Speicherkonten**: Wählen Sie das Speicherkonto **datalake*xxxxxxx*** aus.
         - **Authentifizierungsmodus**: Verbindungszeichenfolge
         - **Private Daten im Speicherkonto sichern**: Ausgewählt
-    - **Tags**:
+    - **Tags:**
         - *Keine*
 3. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Stream Analytics-Auftragsressource.
 
@@ -181,7 +181,7 @@ Bisher haben Sie erfahren, wie Sie mit einem Stream Analytics-Auftrag Nachrichte
         - **Speicherkonten**: Wählen Sie das Speicherkonto **datalake*xxxxxxx*** aus.
         - **Authentifizierungsmodus**: Verbindungszeichenfolge
         - **Private Daten im Speicherkonto sichern**: Ausgewählt
-    - **Tags**:
+    - **Tags:**
         - *Keine*
 
 2. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Stream Analytics-Auftragsressource.
