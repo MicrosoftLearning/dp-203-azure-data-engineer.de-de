@@ -31,14 +31,14 @@ In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und 
 4. Geben Sie im PowerShell-Bereich die folgenden Befehle ein, um dieses Repository zu klonen:
 
     ```
-    rm -r dp500 -f
-    git clone https://github.com/MicrosoftLearning/DP-500-Azure-Data-Analyst dp500
+    rm -r dp203 -f
+    git clone  https://github.com/MicrosoftLearning/Dp-203-azure-data-engineer dp203
     ```
 
 5. Nachdem das Repository geklont wurde, geben Sie die folgenden Befehle ein, um in den Ordner für dieses Lab zu wechseln. Führen Sie das darin enthaltene Skript **setup.ps1** aus:
 
     ```
-    cd dp500/Allfiles/02
+    cd dp203/Allfiles/labs/05
     ./setup.ps1
     ```
 
@@ -58,7 +58,7 @@ Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Sto
 1. Wechseln Sie nach Abschluss des Skripts im Azure-Portal zur  Ressourcengruppe**dp500-*xxxxx*** und wählen Sie ihren Synapse-Arbeitsbereich aus.
 2. Wählen Sie auf der Seite **Übersicht** für Ihren Synapse-Arbeitsbereich auf der Karte **Open Synapse Studio** die Option**Öffnen** aus, um Synapse Studio auf einer neuen Browserregisterkarte zu öffnen.
 3. Verwenden Sie auf der linken Seite von Synapse Studio das Symbol **&rsaquo;&rsaquo;**, um das Menü zu erweitern. Dadurch werden die verschiedenen Seiten in Synapse Studio angezeigt, die Sie zum Verwalten von Ressourcen und zum Ausführen von Datenanalyseaufgaben verwenden.
-4. Wählen Sie auf der Seite **Verwalten** die Registerkarte **Apache Spark Pools** aus und beachten Sie, dass ein Spark-Pool mit einem Namen der Form **spark*xxxxxxx*** im Arbeitsbereich bereitgestellt wurde. Später verwenden Sie diesen Spark-Pool, um Daten aus Dateien im Data-Lake-Speicher für den Arbeitsbereich zu laden und zu analysieren.
+4. Wählen Sie auf der Seite **Verwalten** die Registerkarte **Apache Spark Pools** aus und beachten Sie, dass ein Spark-Pool mit einem Namen der Form **spark*xxxxxxx*** im Arbeitsbereich bereitgestellt wurde. Später verwenden Sie diesen Spark-Pool, um Daten aus Dateien im Data Lake-Speicher für den Arbeitsbereich zu laden und zu analysieren.
 5. Zeigen Sie auf der Seite **Daten** die Registerkarte **Verknüpft** an, und stellen Sie sicher, dass Ihr Arbeitsbereich einen Link zu Ihrem Azure Data Lake Storage Gen2-Speicherkonto enthält, dessen Name **synapse*xxxxxxx* (Primary - datalake*xxxxxxx*)** ähneln sollte.
 6. Erweitern Sie Ihr Speicherkonto, und stellen Sie sicher, dass es einen Dateisystemcontainer mit dem Namen **Dateien** enthält.
 7. Wählen Sie den **files**-Container aus, und beachten Sie, dass er Ordner mit den Namen **sales** und **synapse** enthält. Der Ordner **synapse** wird von Azure Synapse verwendet, und der Ordner **sales** enthält die Datendateien, die Sie abfragen möchten.
@@ -84,7 +84,7 @@ Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Sto
     ```
 
 4. Wenn der Code ausgeführt wurde, überprüfen Sie die Ausgabe unter der Zelle im Notebook. Sie zeigt die ersten zehn Zeilen in der ausgewählten Datei mit automatischen Spaltennamen im Format **_c0**, **_c1**, **_c2** usw. an.
-5. Ändern Sie den Code so, dass die **spark.read.load**-Funktion Daten aus <u>allen</u> CSV-Dateien im Ordner liest und die **display**-Funktion die ersten 100 Zeilen anzeigt. Ihr Code sollte wie folgt aussehen und *datalakexxxxx* dem Namen Ihres Data-Lake-Speichers entsprechen:
+5. Ändern Sie den Code so, dass die **spark.read.load**-Funktion Daten aus <u>allen</u> CSV-Dateien im Ordner liest und die **display**-Funktion die ersten 100 Zeilen anzeigt. Ihr Code sollte wie folgt aussehen und *datalakexxxxx* dem Namen Ihres Data Lake-Speichers entsprechen:
 
     ```Python
     %%pyspark
@@ -95,9 +95,9 @@ Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Sto
 
 6. Verwenden Sie die Schaltfläche **&#9655;** links neben der Codezelle aus, um nur diese Zelle auszuführen, und überprüfen Sie die Ergebnisse.
 
-    Der Dataframe enthält jetzt Daten aus allen Dateien, aber die Spaltennamen sind nicht hilfreich. Spark verwendet einen „Schema-beim-Lesen“-Ansatz, um geeignete Datentypen für die Spalten basierend auf den darin enthaltenen Daten zu ermitteln. Wenn eine Kopfzeile in einer Textdatei vorhanden ist, kann sie verwendet werden, um die Spaltennamen zu identifizieren, indem ein **header=True**-Parameter in der **load**-Funktion angegeben wird. Alternativ können Sie ein explizites Schema für den Dataframe definieren.
+    Der Dataframe enthält jetzt Daten aus allen Dateien, aber die Spaltennamen sind nicht hilfreich. Spark verwendet einen "Schema-beim-Lesen"-Ansatz, um geeignete Datentypen für die Spalten basierend auf den darin enthaltenen Daten zu ermitteln. Wenn eine Kopfzeile in einer Textdatei vorhanden ist, kann sie verwendet werden, um die Spaltennamen zu identifizieren, indem ein **header=True**-Parameter in der **load**-Funktion angegeben wird. Alternativ können Sie ein explizites Schema für den Dataframe definieren.
 
-7. Ändern Sie den Code wie folgt, und ersetzen Sie *datalakexxxxxxxxx*, um ein explizites Schema für den Dataframe zu definieren, das die Spaltennamen und Datentypen enthält. Führen Sie den Code in der Zelle erneut aus.
+7. Ändern Sie den Code wie folgt, und ersetzen Sie *datalakexxxxxxxxx*, um ein explizites Schema für den Dataframe zu definieren, der die Spaltennamen und Datentypen enthält. Führen Sie den Code in der Zelle erneut aus.
 
     ```Python
     %%pyspark
@@ -401,7 +401,7 @@ Mit **matplotlib** können Sie zwar komplexe Diagramme mit mehreren Typen erstel
     plt.show()
     ```
 
-4. Führen Sie den Code aus, und beachten Sie, dass Sie mit Seaborn ein konsistentes Farbdesign für Ihre Plots festlegen können.
+4. Führen Sie den Code aus, und beachten Sie, dass Sie mit seaborn ein konsistentes Farbdesign für Ihre Plots festlegen können.
 
 5. Fügen Sie dem Notebook eine neue Codezelle hinzu, und geben Sie darin den folgenden Code ein:
 
