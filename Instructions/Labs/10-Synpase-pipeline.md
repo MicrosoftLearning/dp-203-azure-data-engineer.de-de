@@ -127,6 +127,7 @@ Um die Daten in der Textdatei in die Datenbanktabelle zu laden, implementieren S
             - **Name**: Data_Warehouse
             - **Beschreibung**: Dedizierter SQL-Pool
             - **Verbindung über Integration Runtime herstellen**: AutoResolveIntegrationRuntime
+            - **Version:** Alt
             - **Kontoauswahlmethode**: Aus Azure-Abonnement
             - **Azure-Abonnement**: Wählen Sie Ihr Azure-Abonnement aus.
             - **Servername**: synapse*xxxxxxx* (Synapse-Arbeitsbereich)
