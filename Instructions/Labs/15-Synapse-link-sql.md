@@ -117,6 +117,7 @@ Jetzt können Sie Azure Synapse Link für SQL in Ihrem Synapse Analytics-Arbeits
         - **Name**: SqlAdventureWorksLT
         - **Beschreibung**: Verbindung mit der Datenbank „AdventureWorksLT“
         - **Verbindung über Integration Runtime herstellen**: AutoResolveIntegrationRuntime
+        - **Version:** Alt
         - **Verbindungszeichenfolge**: Ausgewählt
         - **Aus Azure-Abonnement**: Ausgewählt
         - **Azure-Abonnement**: *Wählen Sie Ihr Azure-Abonnement aus.*
