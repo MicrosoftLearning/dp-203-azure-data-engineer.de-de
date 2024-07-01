@@ -39,7 +39,7 @@ In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und 
 5. Nachdem das Repository geklont wurde, geben Sie die folgenden Befehle ein, um in den Ordner für dieses Lab zu wechseln. Führen Sie das darin enthaltene Skript **setup.ps1** aus:
 
     ```
-    cd dp203/Allfiles/02
+    cd dp203/Allfiles/labs/02
     ./setup.ps1
     ```
 
