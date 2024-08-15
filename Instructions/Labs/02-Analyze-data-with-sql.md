@@ -56,8 +56,11 @@ Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Sto
 
 ### Anzeigen von Dateien im Data Lake
 
-1. Wechseln Sie nach Abschluss des Skripts im Azure-Portal zur  Ressourcengruppe**dp500-*xxxxx*** und wählen Sie ihren Synapse-Arbeitsbereich aus.
-2. Wählen Sie auf der Seite **Übersicht** für Ihren Synapse-Arbeitsbereich auf der Karte **Open Synapse Studio** die Option**Öffnen** aus, um Synapse Studio auf einer neuen Browserregisterkarte zu öffnen.
+> **Hinweis**: Es kann notwendig sein, den Ordner **sales** zu erstellen und dann die Ordner **csv**, **json** und **parquet** unterhalb des Ordners **sales** anzulegen. Sobald dies geschehen ist, können Sie die Dateien auf Ihren lokalen Rechner in einen Ordner herunterladen, an den Sie sich erinnern, und die Dateien in jeden der entsprechenden Ordner hochladen, die Sie oben erstellt haben.
+> Sie können die Dateien unter dem folgenden Pfad herunterladen: https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/02/data
+
+1. Wechseln Sie nach Abschluss des Skripts im Azure-Portal zur erstellten Ressourcengruppe **dp203-*xxxxxxx***, und wählen Sie Ihren Synapse-Arbeitsbereich aus.
+2. Wählen Sie auf der Seite **Übersicht** für Ihren Synapse-Arbeitsbereich in der Karte **Synapse Studio öffnen** die Option **Öffnen** aus, um Synapse Studio in einer neuen Browserregisterkarte zu öffnen. Melden Sie sich an, wenn Sie dazu aufgefordert werden.
 3. Verwenden Sie auf der linken Seite von Synapse Studio das Symbol **&rsaquo;&rsaquo;**, um das Menü zu erweitern. Dadurch werden die verschiedenen Seiten in Synapse Studio angezeigt, die Sie zum Verwalten von Ressourcen und zum Ausführen von Datenanalyseaufgaben verwenden.
 4. Wählen Sie auf der Seite **Verwalten** die Registerkarte **Apache Spark Pools** aus und beachten Sie, dass ein Spark-Pool mit einem Namen der Form **spark*xxxxxxx*** im Arbeitsbereich bereitgestellt wurde. Später verwenden Sie diesen Spark-Pool, um Daten aus Dateien im Data Lake-Speicher für den Arbeitsbereich zu laden und zu analysieren.
 5. Zeigen Sie auf der Seite **Daten** die Registerkarte **Verknüpft** an, und stellen Sie sicher, dass Ihr Arbeitsbereich einen Link zu Ihrem Azure Data Lake Storage Gen2-Speicherkonto enthält, dessen Name **synapse*xxxxxxx* (Primary - datalake*xxxxxxx*)** ähneln sollte.
