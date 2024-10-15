@@ -10,7 +10,7 @@ Delta Lake ist ein Open-Source-Projekt, um eine Transaktionsdatenspeicherschicht
 
 Diese Übung dauert ca. **40** Minuten.
 
-## Vorbereitung
+## Vor der Installation
 
 Sie benötigen ein [Azure-Abonnement](https://azure.microsoft.com/free), in dem Sie Administratorzugriff besitzen.
 
@@ -25,18 +25,18 @@ In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und 
 
     ![Azure-Portal mit einem Cloud Shell-Bereich](./images/cloud-shell.png)
 
-    > **Hinweis**: Wenn Sie zuvor eine Cloud Shell erstellt haben, die eine *Bash-Umgebung* verwendet, verwenden Sie das Dropdownmenü oben links im Cloud Shell-Bereich, um sie in ***PowerShell*** zu ändern.
+    > **Hinweis**: Wenn Sie zuvor eine Cloud Shell erstellt haben, die eine *Bash*-Umgebung verwendet, ändern Sie diese mithilfe des Dropdownmenüs oben links im Cloud Shell-Bereich zu ***PowerShell***.
 
-3. Beachten Sie, dass Sie die Größe der Cloud Shell durch Ziehen der Trennzeichenleiste oben im Bereich ändern können, oder den Bereich mithilfe der Symbole **&#8212;**, **&#9723;** und **X** oben rechts minimieren, maximieren und schließen können. Weitere Informationen zur Verwendung von Azure Cloud Shell finden Sie in der [Azure Cloud Shell-Dokumentation](https://docs.microsoft.com/azure/cloud-shell/overview).
+3. Beachten Sie, dass Sie die Größe der Cloud Shell durch Ziehen der Trennzeichenleiste oben im Bereich ändern können oder den Bereich mithilfe der Symbole **&#8212;**, **&#9723;** und **X** oben rechts minimieren, maximieren und schließen können. Weitere Informationen zur Verwendung von Azure Cloud Shell finden Sie in der [Azure Cloud Shell-Dokumentation](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-4. Geben Sie im Terminal die folgenden Befehle ein, um dieses Repository zu klonen:
+4. Geben Sie im PowerShell-Bereich die folgenden Befehle ein, um dieses Repository zu klonen:
 
     ```
     rm -r dp-203 -f
     git clone https://github.com/MicrosoftLearning/dp-203-azure-data-engineer dp-203
     ```
 
-5. Nachdem das Repository geklont wurde, geben Sie die folgenden Befehle ein, um in den Ordner für dieses Lab zu wechseln. Führen Sie das darin enthaltene Skript **setup.ps1** aus:
+5. Nachdem das Repository geklont wurde, geben Sie die folgenden Befehle ein, um in den Ordner für diese Übung zu wechseln. Führen Sie das darin enthaltene Skript **setup.ps1** aus:
 
     ```
     cd dp-203/Allfiles/labs/07
@@ -89,7 +89,7 @@ Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Sto
 
 12. Verwenden Sie das Symbol **&#9655;** links neben der Codezelle, um sie auszuführen, und warten Sie auf die Ergebnisse. Wenn Sie eine Zelle zum ersten Mal in einem Notebook ausführen, wird der Spark-Pool gestartet. Es kann also etwa eine Minute dauern, bis Ergebnisse zurückgegeben werden. Letztlich sollten die Ergebnisse unterhalb der Zelle angezeigt werden und in etwa wie folgt aussehen:
 
-    | ProductID | ProductName | Category | ListPrice |
+    | ProductID | ProductName | Kategorie | ListPrice |
     | -- | -- | -- | -- |
     | 771 | Mountain-100 Silver, 38 | Mountainbikes | 3399.9900 |
     | 772 | Mountain-100 Silver, 42 | Mountainbikes | 3399.9900 |
@@ -398,7 +398,7 @@ Zusätzlich zu Spark-Pools umfasst Azure Synapse Analytics einen integrierten se
 
 5. Verwenden Sie das Symbol **&#9655; Ausführen**, um das Skript auszuführen und überprüfen Sie die Ergebnisse. Sie sollten ungefähr folgendermaßen aussehen:
 
-    | ProductID | ProductName | Category | ListPrice |
+    | ProductID | ProductName | Kategorie | ListPrice |
     | -- | -- | -- | -- |
     | 771 | Mountain-100 Silver, 38 | Mountainbikes | 3059.991 |
     | 772 | Mountain-100 Silver, 42 | Mountainbikes | 3399.9900 |
@@ -420,10 +420,10 @@ Zusätzlich zu Spark-Pools umfasst Azure Synapse Analytics einen integrierten se
 
 Wenn Sie sich mit Azure Synapse Analytics vertraut gemacht haben, sollten Sie die erstellten Ressourcen löschen, um unnötige Azure-Kosten zu vermeiden.
 
-1. Schließen Sie die Synapse Studio-Registerkarte im Browser, und kehren Sie zum Azure-Portal zurück.
+1. Schließen Sie die Registerkarte mit Synapse Studio, und kehren Sie zum Azure-Portal zurück.
 2. Wählen Sie auf der **Startseite** des Azure-Portals die Option **Ressourcengruppen** aus.
 3. Wählen Sie die Ressourcengruppe **dp203-*xxxxxxx*** für Ihren Synapse Analytics-Arbeitsbereich aus (nicht die verwaltete Ressourcengruppe), und vergewissern Sie sich, dass sie den Synapse-Arbeitsbereich, das Speicherkonto und den Spark-Pool für Ihren Arbeitsbereich enthält.
 4. Wählen Sie oben auf der Seite **Übersicht** für Ihre Ressourcengruppe die Option **Ressourcengruppe löschen** aus.
-5. Geben Sie den Namen der Ressourcengruppe **dp203-*xxxxxxx*** ein, um zu bestätigen, dass Sie diese löschen möchten, und wählen Sie **Löschen** aus.
+5. Geben Sie den Namen der Ressourcengruppe **dp203-*xxxxxxx*** ein, um zu bestätigen, dass Sie sie löschen möchten, und wählen Sie **Löschen** aus.
 
     Nach einigen Minuten werden die Ressourcengruppe in Ihrem Azure Synapse-Arbeitsbereich und die damit verknüpfte Ressourcengruppe im verwalteten Arbeitsbereich gelöscht.
