@@ -10,7 +10,7 @@ Bei Azure Synapse Link für Azure Cosmos DB handelt es sich um eine cloudnative 
 
 Diese Übung dauert ca. **35** Minuten.
 
-## Vorbereitung
+## Vor der Installation
 
 Sie benötigen ein [Azure-Abonnement](https://azure.microsoft.com/free), in dem Sie Administratorzugriff besitzen.
 

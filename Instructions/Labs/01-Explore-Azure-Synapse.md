@@ -54,7 +54,7 @@ In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und 
 
 *Synapse Studio* ist eine webbasierte Oberfläche, in der Sie mit Ihrem Synapse Analytics-Arbeitsbereich arbeiten können.
 
-1. Wenn das Setupskript ausgeführt wurde, wechseln Sie im Azure-Portal zur von ihr erstellten Ressourcengruppe **dp203-*xxxxxxx*** und beachten Sie, dass diese Ressourcengruppe Ihren Synapse-Arbeitsbereich, ein Speicherkonto für Ihren Data Lake, einen Apache Spark-Pool, einen Daten-Explorer-Pool und einen dedizierten SQL-Pool enthält.
+1. Wenn das Setupskript ausgeführt wurde, wechseln Sie im Azure-Portal zur von ihr erstellten Ressourcengruppe **dp203-*xxxxxxx*** und beachten Sie, dass diese Ressourcengruppe Ihren Synapse-Arbeitsbereich, ein Speicherkonto für Ihren Data Lake, einen Apache Spark-Pool und einen dedizierten SQL-Pool enthält.
 2. Wählen Sie Ihren Synapse-Arbeitsbereich aus, und klicken Sie auf der Seite **Übersicht** der Karte **Synapse Studio öffnen** auf die Option **Öffnen**, um Synapse Studio auf einer neuen Browserregisterkarte zu öffnen. Synapse Studio ist eine webbasierte Schnittstelle, die Sie zum Arbeiten mit Ihrem Synapse Analytics-Arbeitsbereich verwenden können.
 3. Verwenden Sie auf der linken Seite von Synapse Studio das Symbol **&rsaquo;&rsaquo;**, um das Menü zu erweitern. Dadurch werden die verschiedenen Seiten in Synapse Studio angezeigt, die Sie zum Verwalten von Ressourcen und zum Ausführen von Datenanalyseaufgaben verwenden, wie im Folgenden gezeigt:
 
@@ -433,7 +433,7 @@ Nachdem Sie nun mit dem Erkunden von Azure Synapse Analytics fertig sind, lösch
 
 1. Schließen Sie die Registerkarte mit Synapse Studio, und kehren Sie zum Azure-Portal zurück.
 2. Wählen Sie auf der **Startseite** des Azure-Portals die Option **Ressourcengruppen** aus.
-3. Wählen Sie die Ressourcengruppe **dp203-*xxxxxxx*** für Ihren Synapse Analytics-Arbeitsbereich aus (nicht die verwaltete Ressourcengruppe), und vergewissern Sie sich, dass sie den Synapse-Arbeitsbereich, das Speicherkonto, den SQL-Pool, Daten-Explorer-Pool und Spark-Pool für Ihren Arbeitsbereich enthält.
+3. Wählen Sie die Ressourcengruppe **dp203-*xxxxxxx*** für Ihren Synapse Analytics-Arbeitsbereich aus (nicht die verwaltete Ressourcengruppe), und vergewissern Sie sich, dass sie den Synapse-Arbeitsbereich, das Speicherkonto, den SQL-Pool und Spark-Pool für Ihren Arbeitsbereich enthält.
 4. Wählen Sie oben auf der Seite **Übersicht** für Ihre Ressourcengruppe die Option **Ressourcengruppe löschen** aus.
 5. Geben Sie den Namen der Ressourcengruppe **dp203-*xxxxxxx*** ein, um zu bestätigen, dass Sie sie löschen möchten, und wählen Sie **Löschen** aus.
 
