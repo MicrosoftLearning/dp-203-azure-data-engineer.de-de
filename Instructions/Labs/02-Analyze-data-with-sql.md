@@ -10,7 +10,7 @@ SQL ist wahrscheinlich die am häufigsten verwendete Sprache für das Arbeiten m
 
 Dieses Lab dauert ungefähr **40** Minuten.
 
-## Vor der Installation
+## Vorbereitung
 
 Sie benötigen ein [Azure-Abonnement](https://azure.microsoft.com/free), in dem Sie Administratorzugriff besitzen.
 
@@ -21,11 +21,11 @@ Sie benötigen einen Azure Synapse Analytics-Arbeitsbereich mit Zugriff auf den 
 In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und einer ARM-Vorlage, um einen Azure Synapse Analytics-Arbeitsbereich bereitzustellen.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) unter `https://portal.azure.com` an.
-2. Verwenden Sie rechts neben der Suchleiste oben auf der Seite die Schaltfläche **[\>_]**, um eine neue Cloud Shell-Instanz im Azure-Portal zu erstellen. Wählen Sie eine ***PowerShell***-Umgebung aus, und erstellen Sie Speicher, falls Sie dazu aufgefordert werden. Die Cloud Shell bietet eine Befehlszeilenschnittstelle in einem Bereich am unteren Rand des Azure-Portals, wie hier gezeigt:
+2. Verwenden Sie rechts neben der Suchleiste oben auf der Seite die Schaltfläche **[\>_]** , um eine neue Cloud Shell-Instanz im Azure-Portal zu erstellen. Wählen Sie eine ***PowerShell***-Umgebung aus, und erstellen Sie Speicher, falls Sie dazu aufgefordert werden. Die Cloud Shell bietet eine Befehlszeilenschnittstelle in einem Bereich am unteren Rand des Azure-Portals, wie hier gezeigt:
 
     ![Azure-Portal mit einem Cloud Shell-Bereich](./images/cloud-shell.png)
 
-    > **Hinweis**: Wenn Sie zuvor eine Cloud Shell erstellt haben, die eine *Bash*-Umgebung verwendet, ändern Sie diese mithilfe des Dropdownmenüs oben links im Cloud Shell-Bereich zu ***PowerShell***.
+    > **Hinweis**: Wenn Sie zuvor eine Cloudshell erstellt haben, die eine *Bash-Umgebung* verwendet, verwenden Sie das Dropdownmenü oben links im Bereich der Cloudshell, um sie in*** Power Shell ***zu ändern.
 
 3. Beachten Sie, dass Sie die Größe der Cloud Shell durch Ziehen der Trennzeichenleiste oben im Bereich ändern können oder den Bereich mithilfe der Symbole **&#8212;**, **&#9723;** und **X** oben rechts minimieren, maximieren und schließen können. Weitere Informationen zur Verwendung von Azure Cloud Shell finden Sie in der [Azure Cloud Shell-Dokumentation](https://docs.microsoft.com/azure/cloud-shell/overview).
 
@@ -46,23 +46,23 @@ In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und 
 6. Wenn Sie dazu aufgefordert werden, wählen Sie aus, welches Abonnement Sie verwenden möchten (dies geschieht nur, wenn Sie Zugriff auf mehrere Azure-Abonnements haben).
 7. Wenn Sie dazu aufgefordert werden, geben Sie ein geeignetes Kennwort ein, das für Ihren Azure Synapse SQL-Pool festgelegt werden soll.
 
-    > **Hinweis**: Merken Sie sich unbedingt dieses Kennwort!
+    > **Hinweis**: Merken Sie sich unbedingt das Kennwort!
 
 8. Warten Sie, bis das Skript abgeschlossen ist. Dies dauert in der Regel etwa 10 Minuten. Während Sie warten, lesen Sie den [Serverless SQL-Pool in Azure Synapse Analytics-Artikel](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) in der Dokumentation zu Azure Synapse Analytics.
 
 ## Abfragen von Daten in Dateien
 
-Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Storage-Konto zum Hosten des Data Lake bereit und lädt dann einige Dateien mit Daten in den Data Lake hoch.
+Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Storage-Konto zum Hosten des Datensees bereit und lädt dann einige Datendateien in den Data Lake hoch.
 
 ### Anzeigen von Dateien im Data Lake
 
 1. Wechseln Sie nach Abschluss des Skripts im Azure-Portal zur erstellten Ressourcengruppe **dp203-*xxxxxxx***, und wählen Sie Ihren Synapse-Arbeitsbereich aus.
 2. Wählen Sie auf der Seite **Übersicht** für Ihren Synapse-Arbeitsbereich in der Karte **Synapse Studio öffnen** die Option **Öffnen** aus, um Synapse Studio in einer neuen Browserregisterkarte zu öffnen. Melden Sie sich an, wenn Sie dazu aufgefordert werden.
-3. Verwenden Sie auf der linken Seite von Synapse Studio das Symbol **&rsaquo;&rsaquo;**, um das Menü zu erweitern. Dadurch werden die verschiedenen Seiten in Synapse Studio angezeigt, die Sie zum Verwalten von Ressourcen und zum Ausführen von Datenanalyseaufgaben verwenden.
-4. Zeigen Sie auf der Seite **Daten** die Registerkarte **Verknüpft** an, und stellen Sie sicher, dass Ihr Arbeitsbereich einen Link zu Ihrem Azure Data Lake Storage Gen2-Speicherkonto enthält, dessen Name **synapse*xxxxxxx* (Primary - datalake*xxxxxxx*)** ähneln sollte.
-5. Erweitern Sie Ihr Speicherkonto, und stellen Sie sicher, dass es einen Dateisystemcontainer mit dem Namen **Dateien** enthält.
-6. Wählen Sie den Container **Dateien** aus und beachten Sie, dass er einen Ordner mit dem Namen **Sales** enthält. Dieser Ordner enthält die Datendateien, die Sie abfragen möchten.
-7. Öffnen Sie den Ordner **Sales** und den darin enthaltenen **CSV**-Ordner und beachten Sie, dass dieser Ordner CSV-Dateien für drei Jahre Verkaufsdaten enthält.
+3. Verwenden Sie im linken Bereich von Synapse Studio das Symbol **&rsaquo;&rsaquo;** , um das Menü zu erweitern. Dadurch werden die verschiedenen Seiten in Synapse Studio angezeigt, die Sie zur Verwaltung von Ressourcen und zur Durchführung von Datenanalyseaufgaben verwenden werden.
+4. Zeigen Sie auf der Seite **Daten** die Registerkarte **Verknüpft** an, und vergewissern Sie sich, dass Ihr Arbeitsbereich einen Link zu Ihrem Azure Data Lake Storage Gen2-Speicherkonto enthält, das einen Namen wie **Synapse*xxxxxxx* (Primary - datalake*xxxxxxx*)**hat.
+5. Erweitern Sie Ihr Speicherkonto, und stellen Sie sicher, dass es einen Dateisystemcontainer mit Namen **Dateien** enthält.
+6. Wählen Sie den **Dateicontainer** aus, und beachten Sie, dass er einen Ordner mit dem Namen **Vertrieb** enthält. Dieser Ordner enthält die Datendateien, die Sie abfragen möchten.
+7. Öffnen Sie den **Verkaufsordner** und den darin enthaltenen **CSV**-Ordner, und beachten Sie, dass dieser Ordner CSV-Dateien für drei Jahre Verkaufsdaten enthält.
 8. Klicken Sie mit der rechten Maustaste auf eine der Dateien, und wählen Sie **Vorschau** aus, um die darin enthaltenen Daten anzuzeigen. Beachten Sie, dass die Dateien keine Kopfzeile enthalten, sodass Sie die Auswahl der Option zum Anzeigen von Spaltenüberschriften aufheben können.
 9. Schließen Sie die Vorschau, und navigieren Sie dann mit der Schaltfläche **↑** zurück zum Ordner **Vertrieb**.
 10. Öffnen Sie im Ordner **Vertrieb** den Ordner **JSON** , und beobachten Sie, dass er einige Beispielverkaufsaufträge in JSON-Dateien enthält. Zeigen Sie eine Vorschau dieser Dateien an, um das JSON-Format anzuzeigen, das für einen Verkaufsauftrag verwendet wird.
@@ -72,7 +72,7 @@ Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Sto
 
 ### Verwenden von SQL zum Abfragen von CSV-Dateien
 
-1. Wählen Sie den **CSV**-Ordner und dann in der Liste **Neues SQL-Skript** auf der Symbolleiste **Die ersten 100 Zeilen auswählen** aus.
+1. Wählen Sie den**csv** Ordner aus und dann in der **Neues SQL Ccript** Liste auf der Symbolleiste aus, wählen Sie dann **Obere 100 Zeilen auswählen** aus.
 2. In der **Dateityp** Liste wählen Sie **Textformat**, und wenden Sie dann die Einstellungen an, um ein neues SQL-Skript zu öffnen, das die Daten im Ordner abfragt.
 3. Ändern Sie im Bereich **Eigenschaften**für **sql Script 1**, das erstellt wird, den Namen in **die CSV-Abfrage** ein", und ändern Sie die Ergebniseinstellungen, um ** alle Zeilen** anzuzeigen. Wählen Sie dann auf der Symbolleiste **Veröffentlichen** aus, um das Skript zu speichern, und verwenden Sie die Schaltfläche **Eigenschaften** aus (ähnlich  wie** .**) am rechten Ende der Symbolleiste, um den Bereich **Eigenschaften** auszublenden.
 4. Überprüfen Sie den generierten SQL Code, der in etwa wie der folgende lauten sollte:
@@ -258,7 +258,7 @@ Bisher haben Sie die OPENROWSET-Funktion in einer SELECT-Abfrage verwendet, um D
 Indem Sie eine externe Datenquelle in einer Datenbank definieren, können Sie sie verwenden, um auf den Datenspeicherort zu verweisen, an dem die Dateien gespeichert sind.
 
 1. Wählen Sie in Synapse Studio auf der Seite  **Entwickeln**, im **+**-Menü das **SQL-Skript** aus.
-2. Fügen Sie im neuen Skriptbereich den folgenden Code hinzu (ersetzen Sie *datalakexxxxxxxxx* durch den Namen Ihres Data Lake-Speicherkontos), um eine neue Datenbank zu erstellen und eine externe Datenquelle hinzuzufügen.
+2. Fügen Sie im neuen Skriptbereich den folgenden Code hinzu (ersetzen Sie *datalakexxxxxxxxx* durch den Namen Ihres Datenspeicherkontos), um eine neue Datenbank zu erstellen und eine externe Datenquelle hinzuzufügen.
 
     ```sql
     CREATE DATABASE Sales
@@ -274,9 +274,9 @@ Indem Sie eine externe Datenquelle in einer Datenbank definieren, können Sie si
     GO;
     ```
 
-3. Ändern Sie die Skripteigenschaften, um ihren Namen in **Sales DB erstellen** zu ändern und zu veröffentlichen.
-4. Stellen Sie sicher, dass das Skript mit dem **integrierten** SQL-Pool und der Datenbank **Master** verbunden ist, und führen Sie es dann aus.
-5. Wechseln Sie zurück zur Seite **Daten**, und verwenden Sie die Schaltfläche **&#8635;** oben rechts in Synapse Studio, um die Seite zu aktualisieren. Zeigen Sie dann die Registerkarte **Arbeitsbereich** im Bereich **Daten** an, wo jetzt eine Liste **SQL-Datenbank** angezeigt wird. Erweitern Sie diese Liste, um zu überprüfen, ob die Datenbank **Sales** erstellt wurde.
+3. Ändern Sie die Skripteigenschaften, um ihren Namen in **Sales DB erstellen** und veröffentlichen ihn.
+4. Stellen Sie sicher, dass das Skript mit dem **Built-in** SQL-Pool und derand the **master** Datenbank verbunden ist und führen es aus.
+5. Wechseln Sie zurück zur Seite**Daten** und verwenden Sie die Schaltfläche **↻** oben rechts von Synapse Studio, um die Seite zu aktualisieren. Zeigen Sie die Registerkarte **Workspace** im Bereich **Daten** an, wo eine Liste **SQL-Datenbank** angezeigt wird. Erweitern Sie diese Liste, um zu überprüfen, ob die **Vertriebsdatenbank** erstellt wurde.
 6. Erweitern Sie die **Vertriebsdatenbank** , den Ordner **Externe Ressource**und den Ordner **Externe Datenquellen** , um die **sales_data** von Ihnen erstellten externen Datenquelle anzuzeigen.
 7. Wählen Sie im **...** Menü für die Datenbank **Vertrieb** Folgendes aus **Neues SQL-Skript** > **Leeres Skript**. Geben Sie dann im neuen Skriptbereich die folgende Abfrage ein, und führen Sie sie aus:
 

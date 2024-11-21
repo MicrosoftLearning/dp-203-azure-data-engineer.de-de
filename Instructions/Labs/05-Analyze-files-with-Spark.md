@@ -5,7 +5,7 @@ lab:
 ---
 # Analysieren von Daten in einem Data Lake mit Spark
 
-Apache Spark ist eine Open-Source-Engine für verteilte Datenverarbeitung und wird häufig verwendet, um große Datenmengen in Data Lake Storage zu untersuchen, zu verarbeiten und zu analysieren. Spark ist als Verarbeitungsoption in vielen Datenplattformprodukten verfügbar, einschließlich in Azure HDInsight, Azure Databricks und Azure Synapse Analytics auf der Microsoft Azure-Cloudplattform. Einer der Vorteile von Spark ist die Unterstützung für eine Vielzahl von Programmiersprachen (einschließlich Java, Scala, Python und SQL). Dies macht Spark zu einer sehr flexiblen Lösung für Datenverarbeitungsworkloads (einschließlich Datenbereinigung und -manipulation, statistischer Analysen, maschinellem Lernen, Datenanalysen und Visualisierungen).
+Apache Spark ist eine Open-Source-Engine für verteilte Datenverarbeitung und wird häufig verwendet, um große Datenmengen in Data Lake Storage zu untersuchen, zu verarbeiten und zu analysieren. Spark ist als Verarbeitungsoption in vielen Datenplattformprodukten verfügbar (einschließlich Azure HDInsight, Azure Databricks, Azure Synapse Analytics und Microsoft Fabric). Einer der Vorteile von Spark ist die Unterstützung für eine Vielzahl von Programmiersprachen (einschließlich Java, Scala, Python und SQL). Dies macht Spark zu einer sehr flexiblen Lösung für Datenverarbeitungsworkloads (einschließlich Datenbereinigung und -manipulation, statistischer Analysen, maschinellem Lernen, Datenanalysen und Visualisierungen).
 
 Dieses Lab dauert ungefähr **45** Minuten.
 
@@ -20,15 +20,15 @@ Sie benötigen einen Azure Synapse Analytics-Arbeitsbereich mit Zugriff auf den 
 In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und einer ARM-Vorlage, um einen Azure Synapse Analytics-Arbeitsbereich bereitzustellen.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) unter `https://portal.azure.com` an.
-2. Verwenden Sie rechts neben der Suchleiste oben auf der Seite die Schaltfläche **[\>_]**, um eine neue Cloud Shell-Instanz im Azure-Portal zu erstellen. Wählen Sie eine ***PowerShell***-Umgebung aus, und erstellen Sie Speicher, falls Sie dazu aufgefordert werden. Die Cloud Shell bietet eine Befehlszeilenschnittstelle in einem Bereich am unteren Rand des Azure-Portals, wie hier gezeigt:
+2. Verwenden Sie rechts neben der Suchleiste oben auf der Seite die Schaltfläche **[\>_]** , um eine neue Cloud Shell-Instanz im Azure-Portal zu erstellen. Wählen Sie eine ***PowerShell***-Umgebung aus, und erstellen Sie Speicher, falls Sie dazu aufgefordert werden. Die Cloud Shell bietet eine Befehlszeilenschnittstelle in einem Bereich am unteren Rand des Azure-Portals, wie hier gezeigt:
 
     ![Azure-Portal mit einem Cloud Shell-Bereich](./images/cloud-shell.png)
 
-    > **Hinweis**: Wenn Sie zuvor eine Cloud Shell erstellt haben, die eine *Bash*-Umgebung verwendet, ändern Sie diese mithilfe des Dropdownmenüs oben links im Cloud Shell-Bereich zu ***PowerShell***.
+    > **Hinweis**: Wenn Sie zuvor eine Cloudshell erstellt haben, die eine *Bash-Umgebung* verwendet, verwenden Sie das Dropdownmenü oben links im Bereich der Cloudshell, um sie in*** Power Shell ***zu ändern.
 
 3. Beachten Sie, dass Sie die Größe der Cloud Shell durch Ziehen der Trennzeichenleiste oben im Bereich ändern können oder den Bereich mithilfe der Symbole **&#8212;**, **&#9723;** und **X** oben rechts minimieren, maximieren und schließen können. Weitere Informationen zur Verwendung von Azure Cloud Shell finden Sie in der [Azure Cloud Shell-Dokumentation](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-4. Geben Sie im PowerShell-Bereich die folgenden Befehle ein, um dieses Repository zu klonen:
+4. Geben Sie im PowerShell Bereich die folgenden Befehle ein, um dieses Repository zu klonen:
 
     ```
     rm -r dp203 -f
@@ -45,34 +45,34 @@ In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und 
 6. Wenn Sie dazu aufgefordert werden, wählen Sie aus, welches Abonnement Sie verwenden möchten (dies geschieht nur, wenn Sie Zugriff auf mehrere Azure-Abonnements haben).
 7. Wenn Sie dazu aufgefordert werden, geben Sie ein geeignetes Kennwort ein, das für Ihren Azure Synapse SQL-Pool festgelegt werden soll.
 
-    > **Hinweis**: Merken Sie sich unbedingt dieses Kennwort!
+    > **Hinweis**: Merken Sie sich unbedingt das Kennwort!
 
-8. Warten Sie, bis das Skript abgeschlossen ist. Dies dauert in der Regel etwa 10 Minuten und in Ausnahmefällen auch länger. Während Sie warten, können Sie den Artikel [Apache Spark in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview) in der Dokumentation zu Azure Synapse Analytics lesen.
+8. Warten Sie, bis das Skript abgeschlossen ist. Dies dauert in der Regel etwa 10 Minuten, kann aber in manchen Fällen auch länger dauern. Während Sie warten, lesen Sie den Artikel [Apache Spark in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview) in der Dokumentation zu Azure Synapse Analytics.
 
 ## Abfragen von Daten in Dateien
 
-Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Storage-Konto zum Hosten des Data Lake bereit und lädt dann einige Dateien mit Daten in den Data Lake hoch.
+Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Storage-Konto zum Hosten des Datensees bereit und lädt dann einige Datendateien in den Data Lake hoch.
 
 ### Anzeigen von Dateien im Data Lake
 
 1. Wechseln Sie nach Abschluss des Skripts im Azure-Portal zur erstellten Ressourcengruppe **dp203-*xxxxxxx***, und wählen Sie Ihren Synapse-Arbeitsbereich aus.
 2. Wählen Sie auf der Seite **Übersicht** für Ihren Synapse-Arbeitsbereich in der Karte **Synapse Studio öffnen** die Option **Öffnen** aus, um Synapse Studio in einer neuen Browserregisterkarte zu öffnen. Melden Sie sich an, wenn Sie dazu aufgefordert werden.
-3. Verwenden Sie auf der linken Seite von Synapse Studio das Symbol **&rsaquo;&rsaquo;**, um das Menü zu erweitern. Dadurch werden die verschiedenen Seiten in Synapse Studio angezeigt, die Sie zum Verwalten von Ressourcen und zum Ausführen von Datenanalyseaufgaben verwenden.
-4. Wählen Sie auf der Seite **Verwalten** die Registerkarte **Apache Spark Pools** aus und beachten Sie, dass ein Spark-Pool mit einem Namen der Form **spark*xxxxxxx*** im Arbeitsbereich bereitgestellt wurde. Später verwenden Sie diesen Spark-Pool, um Daten aus Dateien im Data Lake-Speicher für den Arbeitsbereich zu laden und zu analysieren.
-5. Zeigen Sie auf der Seite **Daten** die Registerkarte **Verknüpft** an, und stellen Sie sicher, dass Ihr Arbeitsbereich einen Link zu Ihrem Azure Data Lake Storage Gen2-Speicherkonto enthält, dessen Name **synapse*xxxxxxx* (Primary - datalake*xxxxxxx*)** ähneln sollte.
-6. Erweitern Sie Ihr Speicherkonto, und stellen Sie sicher, dass es einen Dateisystemcontainer mit dem Namen **Dateien** enthält.
-7. Wählen Sie den **files**-Container aus, und beachten Sie, dass er Ordner mit den Namen **sales** und **synapse** enthält. Der Ordner **synapse** wird von Azure Synapse verwendet, und der Ordner **sales** enthält die Datendateien, die Sie abfragen möchten.
-8. Öffnen Sie den Ordner **sales** und den Ordner **orders**, der darin enthalten ist, und beachten Sie, dass der Ordner **orders** CSV-Dateien mit Verkaufsdaten von drei Jahren enthält.
+3. Verwenden Sie im linken Bereich von Synapse Studio das Symbol **&rsaquo;&rsaquo;** , um das Menü zu erweitern. -dadurch werden die verschiedenen Seiten in Synapse Studio angezeigt, die Sie zur Verwaltung von Ressourcen und zur Durchführung von Datenanalyseaufgaben verwenden werden.
+4. Wählen Sie auf der Seite **Verwalten** die Registerkarte **Apache Spark Pools** aus, und beachten Sie, dass ein Spark-Pool mit einem Namen wie **spark*xxxxxxx*** im Arbeitsbereich bereitgestellt wurde. Später verwenden Sie diesen Spark-Pool, um Daten aus Dateien im Datenspeicher für den Arbeitsbereich zu laden und zu analysieren.
+5. Zeigen Sie auf der Seite **Daten** die Registerkarte **Verknüpft** an, und vergewissern Sie sich, dass Ihr Arbeitsbereich einen Link zu Ihrem Azure Data Lake Storage Gen2-Speicherkonto enthält, das einen Namen wie **Synapse*xxxxxxx* (Primary - datalake*xxxxxxx*)**hat.
+6. Erweitern Sie Ihr Speicherkonto, und stellen Sie sicher, dass es einen Dateisystemcontainer mit Namen **Dateien** enthält.
+7. Wählen Sie den **Dateicontainer** aus, und beachten Sie, dass er Ordner mit dem Namen **Sales** und **Synapse** enthält. Der Ordner **Synapse** wird von Azure Synapse verwendet, und der Ordner **Vertrieb** enthält die Datendateien, die Sie abfragen möchten.
+8. Öffnen Sie den Ordner**Vertrieb** und den darin enthaltenen Ordner **Bestellungen** und beachten Sie, dass der Ordner**Bestellungen** CSV-Dateien für drei Jahre Verkaufsdaten enthält.
 9. Klicken Sie mit der rechten Maustaste auf eine der Dateien, und wählen Sie **Vorschau** aus, um die darin enthaltenen Daten anzuzeigen. Beachten Sie, dass die Dateien keine Kopfzeile enthalten, sodass Sie die Auswahl der Option zum Anzeigen von Spaltenüberschriften aufheben können.
 
-### Verwenden von Spark zum Untersuchen von Daten
+### Verwenden Sie Spark zum Erkunden von Daten
 
-1. Wählen Sie eine der Dateien im Ordner **orders** aus, und wählen Sie dann in der Liste **Neues Notebook** auf der Symbolleiste **In DataFrame laden** aus. Ein Dataframe ist eine Struktur in Spark, die ein tabellarisches Dataset darstellt.
-2. Wählen Sie auf der neuen Registerkarte **Notebook 1**, die geöffnet wird, in der Liste **Anfügen an** Ihren Spark-Pool (**spark*xxxxxxx***) aus. Verwenden Sie dann die Schaltfläche **&#9655; Alle ausführen**, um alle Zellen im Notebook auszuführen (derzeit ist nur eine vorhanden!).
+1. Wählen Sie eine der Dateien im Ordner**Bestellungen**  aus, und wählen Sie dann in der Liste **Neues Notebook** auf der Symbolleiste **In DataFrameladen** aus. Ein Datenframe ist eine Struktur in Spark, die ein tabellarisches Dataset darstellt.
+2. Wählen Sie auf der neuen Registerkarte**Notebook 1** die geöffnet wird, in der Liste **Anfügen an** Ihren Spark-Pool (**spark*xxxxxxx***) aus. Verwenden Sie dann die Schaltfläche **▷ Alle ausführen**, um alle Zellen im Notebook auszuführen (derzeit nur eine!).
 
-    Da Sie Spark-Code zum ersten Mal in dieser Sitzung ausführen, muss der Spark-Pool gestartet werden. Dies bedeutet, dass die erste Ausführung in der Sitzung ein paar Minuten dauern kann. Nachfolgende Ausführungen erfolgen schneller.
+    Hinweis: Da Sie Spark-Code zum ersten Mal in dieser Sitzung ausführen, muss der Spark-Pool gestartet werden. Dies bedeutet, dass die erste Ausführung in der Sitzung etwa eine Minute dauern kann. Nachfolgende Ausführungen erfolgen schneller.
 
-3. Während Sie auf die Initialisierung der Spark-Sitzung warten, überprüfen Sie den generierten Code, der Folgendem ähnlich sieht:
+3. Während Sie auf die Initialisierung der Spark-Sitzung warten, überprüfen Sie den generierten Code. das sieht ähnlich wie folgt aus:
 
     ```Python
     %%pyspark
@@ -83,8 +83,8 @@ Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Sto
     display(df.limit(10))
     ```
 
-4. Wenn der Code ausgeführt wurde, überprüfen Sie die Ausgabe unter der Zelle im Notebook. Sie zeigt die ersten zehn Zeilen in der ausgewählten Datei mit automatischen Spaltennamen im Format **_c0**, **_c1**, **_c2** usw. an.
-5. Ändern Sie den Code so, dass die **spark.read.load**-Funktion Daten aus <u>allen</u> CSV-Dateien im Ordner liest und die **display**-Funktion die ersten 100 Zeilen anzeigt. Ihr Code sollte wie folgt aussehen und *datalakexxxxx* dem Namen Ihres Data Lake-Speichers entsprechen:
+4. Wenn der Code ausgeführt wurde, überprüfen Sie die Ausgabe unter der Zelle im Notebook. Sie zeigt die ersten zehn Zeilen in der ausgewählten Datei mit automatischen Spaltennamen im Formular **_c0**, **_c1**, **_c2** usw. an.
+5. Ändern Sie den Code so, dass die Funktionen **Spark.read.load** Daten aus <u>allen</u> CSV-Dateien im Ordner liest, und die **Anzeigefunktion** zeigt die ersten 100 Zeilen an. Ihr Code sollte wie folgt aussehen (wobei *datalakexxxxxxx mit* dem Namen Ihres Datenspeichers übereinstimmen):
 
     ```Python
     %%pyspark
@@ -93,11 +93,11 @@ Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Sto
     display(df.limit(100))
     ```
 
-6. Verwenden Sie die Schaltfläche **&#9655;** links neben der Codezelle aus, um nur diese Zelle auszuführen, und überprüfen Sie die Ergebnisse.
+6. Verwenden Sie die Schaltfläche **▷** links neben der Codezelle, um nur diese Zelle auszuführen, und überprüfen Sie die Ergebnisse.
 
-    Der Dataframe enthält jetzt Daten aus allen Dateien, aber die Spaltennamen sind nicht hilfreich. Spark verwendet einen "Schema-beim-Lesen"-Ansatz, um geeignete Datentypen für die Spalten basierend auf den darin enthaltenen Daten zu ermitteln. Wenn eine Kopfzeile in einer Textdatei vorhanden ist, kann sie verwendet werden, um die Spaltennamen zu identifizieren, indem ein **header=True**-Parameter in der **load**-Funktion angegeben wird. Alternativ können Sie ein explizites Schema für den Dataframe definieren.
+    Der Dataframe enthält jetzt Daten aus allen Dateien, aber die Spaltennamen sind nicht hilfreich. Spark verwendet einen "schema-on-read"-Ansatz, um geeignete Datentypen für die Spalten basierend auf den darin enthaltenen Daten zu ermitteln, und wenn eine Kopfzeile in einer Textdatei vorhanden ist, kann sie verwendet werden, um die Spaltennamen zu identifizieren (durch Angeben eines **Header=True-Parameters** in der **Ladefunktion** ). Alternativ können Sie ein explizites Schema für den Dataframe definieren.
 
-7. Ändern Sie den Code wie folgt, und ersetzen Sie *datalakexxxxxxxxx*, um ein explizites Schema für den Dataframe zu definieren, der die Spaltennamen und Datentypen enthält. Führen Sie den Code in der Zelle erneut aus.
+7. Ändern Sie den Code wie folgt (ersetzen Sie *datalakexxxxxxx),* um ein explizites Schema für den Dataframe zu definieren, der die Spaltennamen und Datentypen enthält. Führen Sie den Code in der Zelle erneut aus.
 
     ```Python
     %%pyspark
@@ -120,17 +120,17 @@ Das Skript stellt einen Azure Synapse Analytics-Arbeitsbereich und ein Azure Sto
     display(df.limit(100))
     ```
 
-8. Verwenden Sie in den Ergebnissen die Schaltfläche **+ Code**, um dem Notebook eine neue Codezelle hinzuzufügen. Fügen Sie dann in der neuen Zelle den folgenden Code hinzu, um das Dataframeschema anzuzeigen:
+8. Verwenden Sie unter den Ergebnissen das Symbol **＋ Code**, um dem Notebook eine neue Codezelle hinzuzufügen. Fügen Sie dann in der neuen Zelle den folgenden Code hinzu, um das Dataframeschema anzuzeigen:
 
     ```Python
     df.printSchema()
     ```
 
-9. Führen Sie die neue Zelle aus, und stellen Sie sicher, dass das Dataframeschema dem von Ihnen definierten **orderSchema** entspricht. Die **printSchema**-Funktion kann nützlich sein, wenn ein Dataframe mit einem automatisch abgeleiteten Schema verwendet wird.
+9. Führen Sie die neue Zelle aus, und stellen Sie sicher, dass das Dataframe-Schema dem von Ihnen definierten **OrderSchema** entspricht. Die **printSchema**-Funktion kann nützlich sein, wenn Sie einen Datenrahmen mit einem automatisch abgeleiteten Schema verwenden.
 
 ## Analysieren von Daten in einem Dataframe
 
-Das **dataframe**-Objekt in Spark ähnelt einem Pandas-Dataframe in Python und enthält eine Vielzahl von Funktionen, mit denen Sie die darin enthaltenen Daten bearbeiten, filtern, gruppieren und auf weitere Arten analysieren können.
+Das **Dataframe**-Objekt in Spark ähnelt einem Pandas-Dataframe in Python und enthält eine breite Palette von Funktionen, mit denen Sie die enthaltenen Daten manipulieren, filtern, gruppieren und anderweitig analysieren können.
 
 ### Filtern eines Dataframes
 
@@ -146,7 +146,7 @@ Das **dataframe**-Objekt in Spark ähnelt einem Pandas-Dataframe in Python und e
 2. Führen Sie die neue Codezelle aus, und überprüfen Sie die Ergebnisse. Beachten Sie die folgenden Details:
     - Wenn Sie einen Vorgang für einen Dataframe ausführen, ist das Ergebnis ein neuer Dataframe (in diesem Fall wird ein neuer **customers**-Dataframe erstellt, indem eine bestimmte Teilmenge von Spalten aus dem **df**-Dataframe ausgewählt wird).
     - Dataframes bieten Funktionen wie **count** und **distinct**, die zum Zusammenfassen und Filtern der darin enthaltenen Daten verwendet werden können.
-    - Die Syntax `dataframe['Field1', 'Field2', ...]` ist eine Kurzform für die Definition einer Teilmenge von Spalten. Sie können auch die **select**-Methode verwenden, sodass die erste Zeile des obigen Codes wie folgt geschrieben werden kann: `customers = df.select("CustomerName", "Email")`.
+    - Die `dataframe['Field1', 'Field2', ...]` Syntax ist eine praktische Möglichkeit zum Definieren einer Teilmenge von Spalten. Sie können auch die **select**-Methode verwenden, sodass die erste Zeile des obigen Codes wie folgt geschrieben werden kann: `customers = df.select("CustomerName", "Email")`.
 
 3. Ändern Sie den Code wie folgt:
 
@@ -177,15 +177,15 @@ Das **dataframe**-Objekt in Spark ähnelt einem Pandas-Dataframe in Python und e
     display(yearlySales)
     ```
 
-4. Führen Sie die hinzugefügte Codezelle aus, und beachten Sie, dass in den Ergebnissen die Anzahl der Verkaufsaufträge pro Jahr angezeigt wird. Beachten Sie, dass die **select**-Methode eine SQL-Funktion **year** enthält, um die Jahreskomponente des Felds *OrderDate* zu extrahieren. Anschließend wird eine **alias**-Methode verwendet, um dem extrahierten Jahreswert einen Spaltennamen zuzuweisen. Die Daten werden dann nach der abgeleiteten *Year*-Spalte gruppiert, und die Anzahl der Zeilen in jeder Gruppe wird berechnet, bevor schließlich die **orderBy**-Methode verwendet wird, um den resultierenden Dataframe zu sortieren.
+4. Führen Sie die hinzugefügte Codezelle aus, und beachten Sie, dass in den Ergebnissen die Anzahl der Verkaufsaufträge pro Jahr angezeigt wird. Beachten Sie, dass die **Select**-Methode eine SQL **Jahres** funktion enthält, um die Jahreskomponente des  Felds*OrderDate* zu extrahieren, und dann wird eine **Alias** Methode verwendet, um dem extrahierten Jahreswert einen Spaltennamen zuzuweisen. Die Daten werden dann nach der abgeleiteten *Year*-Spalte gruppiert, und die Anzahl der Zeilen in jeder Gruppe wird berechnet, bevor schließlich die **orderBy**-Methode verwendet wird, um den resultierenden Dataframe zu sortieren.
 
-## Abfragen von Daten mithilfe von Spark SQL
+## Abfragen von Daten mithilfe der Spark SQL
 
-Wie Sie gesehen haben, ermöglichen Ihnen die nativen Methoden des Dataframeobjekts, Daten aus einer Datei effektiv abzufragen und zu analysieren. Viele Datenanalysten arbeiten jedoch lieber mit SQL-Syntax. Spark SQL ist eine SQL-Sprach-API in Spark, die Sie verwenden können, um SQL-Anweisungen auszuführen oder sogar um Daten in relationalen Tabellen zu speichern.
+Wie Sie gesehen haben, ermöglichen Ihnen die nativen Methoden des Dataframeobjekts, Daten aus einer Datei effektiv abzufragen und zu analysieren. Viele Data Analysts arbeiten jedoch bevorzugt mit Tabellen, die sie mithilfe von SQL-Syntax abfragen können. Spark SQL ist eine SQL-Sprach-API in Spark, die Sie zum Ausführen von SQL-Anweisungen oder sogar zum Speichern von Daten in relationalen Tabellen verwenden können.
 
 ### Verwenden von Spark SQL im PySpark-Code
 
-Die Standardsprache in Azure Synapse Studio-Notebooks ist PySpark, eine Spark-basierte Python-Runtime. Innerhalb dieser Runtime können Sie die **spark.sql**-Bibliothek verwenden, um Spark SQL-Syntax in Ihren Python-Code einzubetten und mit SQL-Konstrukten wie Tabellen und Ansichten arbeiten.
+Die Standardsprache in Azure Synapse Studio-Notebooks ist PySpark, eine Spark-basierte Python-Laufzeit. Innerhalb dieser Laufzeit können Sie die Bibliothek **Spark.sql** verwenden, um Spark SQL-Syntax in Ihren Python-Code einzubetten und mit SQL-Konstrukten wie Tabellen und Ansichten zu arbeiten.
 
 1. Fügen Sie dem Notebook eine neue Codezelle hinzu, und geben Sie darin den folgenden Code ein:
 
@@ -197,9 +197,9 @@ Die Standardsprache in Azure Synapse Studio-Notebooks ist PySpark, eine Spark-ba
     ```
 
 2. Führen Sie die Zelle aus, und überprüfen Sie die Ergebnisse. Beachten Sie, Folgendes:
-    - Der Code speichert die Daten im **df**-Dataframe als temporäre Ansicht mit dem Namen **salesorders**. Spark SQL unterstützt die Verwendung temporärer Ansichten oder beibehaltener Tabellen als Quellen für SQL-Abfragen.
-    - Die **spark.sql**-Methode wird dann verwendet, um eine SQL-Abfrage für die **salesorders**-Ansicht auszuführen.
-    - Die Ergebnisse der Abfrage werden in einem Dataframe gespeichert.
+    - Der Code speichert die Daten im Dataframe **DF** als temporäre Ansicht namens **Salesorders**. Spark SQL unterstützt die Verwendung temporärer Ansichten oder beibehaltener Tabellen als Quellen für SQL-Abfragen.
+    - Die Methode **Spark.sql** wird dann verwendet, um eine SQL-Abfrage für die **Salesorders**-Ansicht auszuführen.
+    - Die Abfrageergebnisse werden in einem Dataframe gespeichert.
 
 ### Ausführen von SQL-Code in einer Zelle
 
@@ -218,14 +218,14 @@ Obwohl es nützlich ist, SQL-Anweisungen in eine Zelle einzubetten, die PySpark-
 
 2. Führen Sie die Zelle aus, und überprüfen Sie die Ergebnisse. Beachten Sie, Folgendes:
     - Die Zeile `%%sql` am Anfang der Zelle (wird als *Magic-Befehl* bezeichnet) gibt an, dass anstelle von PySpark die Spark SQL-Runtime verwendet werden soll, um den Code in dieser Zelle auszuführen.
-    - Der SQL-Code verweist auf die Ansicht **salesorders**, die Sie zuvor mit PySpark erstellt haben.
+    - Der SQL-Code verweist auf die Tabelle **salesorders**, die Sie zuvor mithilfe von PySpark erstellt haben.
     - Die Ausgabe der SQL-Abfrage wird automatisch als Ergebnis unter der Zelle angezeigt.
 
 > **Hinweis:** Weitere Informationen zu Spark SQL und Dataframes finden Sie in der [Spark SQL-Dokumentation](https://spark.apache.org/docs/2.2.0/sql-programming-guide.html).
 
 ## Visualisieren von Daten mit Spark
 
-Ein Bild sagt sprichwörtlich mehr als tausend Worte, und ein Diagramm ist oft besser als tausend Datenzeilen. Notebooks in Azure Synapse Analytics enthalten zwar eine integrierte Diagrammansicht für Daten, die aus einem Dataframe oder einer Spark SQL-Abfrage angezeigt werden, jedoch ist sie nicht für die umfassende Diagrammdarstellung konzipiert. Sie können jedoch Python-Grafikbibliotheken wie **matplotlib** und **seaborn** verwenden, um Diagramme aus Daten in Dataframes zu erstellen.
+Ein Bild sagt sprichwörtlich mehr als tausend Worte, und ein Diagramm ist oft besser als tausend Datenzeilen. Notebooks in Fabric enthalten zwar eine integrierte Diagrammansicht für Daten, die aus einem Dataframe oder einer Spark SQL-Abfrage angezeigt werden, die Ansicht ist jedoch nicht für die umfassende Diagrammdarstellung konzipiert. Sie können jedoch Python-Grafikbibliotheken wie **matplotlib** und **seaborn** verwenden, um Diagramme aus Daten in Dataframes zu erstellen.
 
 ### Anzeigen von Ergebnissen als Diagramm
 
@@ -248,7 +248,7 @@ Ein Bild sagt sprichwörtlich mehr als tausend Worte, und ein Diagramm ist oft b
 
 5. Stellen Sie sicher, dass das Diagramm in etwa wie folgt aussieht:
 
-    ![Balkendiagramm mit Produkten nach Gesamtbestellmenge](./images/notebook-chart.png)
+    ![Ein Balkendiagramm der Produkte nach Gesamtbestellungsmenge](./images/notebook-chart.png)
 
 ### Erste Schritte mit **matplotlib**
 
@@ -401,7 +401,7 @@ Mit **matplotlib** können Sie zwar komplexe Diagramme mit mehreren Typen erstel
     plt.show()
     ```
 
-4. Führen Sie den Code aus, und beachten Sie, dass Sie mit seaborn ein konsistentes Farbdesign für Ihre Plots festlegen können.
+4. Führen Sie den geänderten Code aus, und beachten Sie, dass Sie mit Seaborn ein konsistentes Farbdesign für Ihre Plots festlegen können.
 
 5. Fügen Sie dem Notebook eine neue Codezelle hinzu, und geben Sie darin den folgenden Code ein:
 
@@ -414,7 +414,7 @@ Mit **matplotlib** können Sie zwar komplexe Diagramme mit mehreren Typen erstel
     plt.show()
     ```
 
-6. Führen Sie den Code aus, um den Jahresumsatz als Liniendiagramm anzuzeigen.
+6. Führen Sie den geänderten Code aus, um den Jahresumsatz als Liniendiagramm anzuzeigen.
 
 > **Hinweis:** Weitere Informationen zur Darstellung mithilfe der seaborn-Bibliothek finden Sie in der [seaborn-Dokumentation](https://seaborn.pydata.org/index.html).
 

@@ -16,7 +16,7 @@ Sie benötigen ein [Azure-Abonnement](https://azure.microsoft.com/free), in dem 
 
 ## Bereitstellen eines Azure Synapse Analytics-Arbeitsbereichs
 
-Ein Azure Synapse Analytics-Arbeitsbereich ** bietet einen zentralen Punkt für die Verwaltung von Daten und Datenverarbeitungslaufzeiten. Sie können einen Arbeitsbereich mithilfe der interaktiven Benutzeroberfläche im Azure-Portal bereitstellen, oder Sie können einen Arbeitsbereich und darin befindliche Ressourcen mithilfe eines Skripts oder einer Vorlage bereitstellen. In den meisten Produktionsszenarien empfiehlt es sich, die Bereitstellung mit Skripten oder Vorlagen zu automatisieren, damit Sie die Ressourcenbereitstellung in einen wiederholbaren *DevOps-Prozess* (Development/Operations, Entwicklung/Betrieb) integrieren können.
+Ein Azure Synapse Analytics- *Arbeitsbereich* bietet einen zentralen Punkt für die Verwaltung von Daten und Datenverarbeitungslaufzeiten. Sie können einen Arbeitsbereich mithilfe der interaktiven Benutzeroberfläche im Azure-Portal bereitstellen, oder Sie können einen Arbeitsbereich und Ressourcen darin mithilfe eines Skripts oder einer Vorlage bereitstellen. In den meisten Produktionsszenarien empfiehlt es sich, die Bereitstellung mit den Skripts und Vorlagen zu automatisieren, damit Sie die Ressourcenbereitstellung in einen wiederholbaren *DevOps-Prozess* (Development/Operations, Entwicklung/Betrieb) integrieren können.
 
 In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und einer ARM-Vorlage, um einen Azure Synapse Analytics-Arbeitsbereich bereitzustellen.
 
@@ -25,7 +25,7 @@ In dieser Übung verwenden Sie eine Kombination aus einem PowerShell-Skript und 
 
     ![Azure-Portal mit einem Cloud Shell-Bereich](./images/cloud-shell.png)
 
-    > **Hinweis**: Wenn Sie zuvor eine Cloud Shell erstellt haben, die eine *Bash*-Umgebung verwendet, ändern Sie diese mithilfe des Dropdownmenüs oben links im Cloud Shell-Bereich zu ***PowerShell***.
+    > **Hinweis**: Wenn Sie zuvor eine Cloudshell erstellt haben, die eine *Bash-Umgebung* verwendet, verwenden Sie das Dropdownmenü oben links im Bereich der Cloudshell, um sie in*** Power Shell ***zu ändern.
 
 3. Beachten Sie, dass Sie die Größe der Cloud Shell durch Ziehen der Trennzeichenleiste oben im Bereich ändern können oder den Bereich mithilfe der Symbole **&#8212;**, **&#9723;** und **X** oben rechts minimieren, maximieren und schließen können. Weitere Informationen zur Verwendung von Azure Cloud Shell finden Sie in der [Azure Cloud Shell-Dokumentation](https://docs.microsoft.com/azure/cloud-shell/overview).
 
@@ -316,7 +316,7 @@ Während SQL eine gängige Sprache zum Abfragen strukturierter Datasets ist, fin
 Sie haben bereits einige Techniken zum Untersuchen und Verarbeiten dateibasierter Daten in einem Data Lake kennen gelernt. In vielen Fällen verwendet eine Unternehmensanalyselösung einen Data Lake zum Speichern und Vorbereiten unstrukturierter Daten, die dann in ein relationales Data Warehouse geladen werden können, um Business Intelligence (BI)-Workloads zu unterstützen. In Azure Synapse Analytics können diese Data Warehouses in einem dedizierten SQL-Pool implementiert werden.
 
 1. Wählen Sie in Synapse Studio auf der Seite **Verwalten** im Abschnitt **SQL-Pools** die Zeile für den dedizierten SQL-Pool **sql*xxxxxxx*** aus, und verwenden Sie dann das zugehörige Symbol **&#9655;**, um sie fortzusetzen.
-2. Warten Sie, bis der SQL-Pool gestartet wird. Dies kann einige Minuten dauern. Verwenden Sie die Schaltfläche **& #8635; Aktualisieren**, um den Status regelmäßig zu überprüfen. Der Status wird als **Online** angezeigt, wenn er bereit ist.
+2. Warten Sie, bis der SQL-Pool gestartet wird. Dies kann einige Minuten dauern. Verwenden Sie die Schaltfläche **↻ Aktualisieren**  um den Status regelmäßig zu überprüfen. Der Status wird als **Online** angezeigt, wenn er bereit ist.
 3. Wenn der SQL-Pool gestartet wurde, wählen Sie die Seite **Daten** aus. Erweitern Sie auf der Registerkarte **Arbeitsbereich** **SQL-Datenbanken** und vergewissern Sie sich, dass **sql*xxxxxxx*** aufgelistet ist (verwenden Sie das Symbol **&#8635;** oben links auf der Seite, um die Ansicht bei Bedarf zu aktualisieren).
 4. Erweitern Sie die **sql*xxxxxxx***-Datenbank und deren Ordner **Tabellen**, gehen Sie dann im **...**-Menü für die Tabelle **FactInternetSales** zu **Neues SQL-Skript** und wählen Sie **TOP 100 Zeilen auswählen** aus.
 5. Überprüfen Sie die Ergebnisse der Abfrage, die die ersten 100 Verkaufstransaktionen in der Tabelle anzeigen. Diese Daten wurden vom Einrichtungsskript in die Datenbank geladen und dauerhaft in der Datenbank gespeichert, die dem dedizierten SQL-Pool zugeordnet ist.
