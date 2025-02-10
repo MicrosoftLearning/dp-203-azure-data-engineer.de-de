@@ -1,3 +1,11 @@
+#README
+
+We've turned off the ability to report issues directly on this repo and do not monitor PRs.
+
+Provide feedback here: https://aka.ms/provide-feedback
+
+Or, if you are a trainer with a microsoft.com email address, please create a ticket in AzDO.
+
 # DP-203: Azure Data Engineer
 
 Dieses Repository enthält Anweisungen und Ressourcen für praktische Übungen in den offiziellen Microsoft-Kursinhalten (MOC, Microsoft Official Courseware) zur Unterstützung der [Microsoft Certified: Azure Data Engineer Associate](https://learn.microsoft.com/certifications/azure-data-engineer/)-Zertifizierung. Die Übungen sollen die zugehörigen Schulungsmodule in [Microsoft Learn](https://learn.microsoft.com/training) ergänzen, und eine <u>Teilmenge</u> dieser Übungen umfasst die Praxislabs im offiziellen Präsenzschulungskurs [DP-203T00: Data Engineering on Microsoft Azure](https://learn.microsoft.com/training/courses/dp-203t00).
